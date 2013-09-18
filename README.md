@@ -45,11 +45,41 @@ nonsense. You are also tempted to put all of the functions in one file and just 
 with my first project, which ended up being an epically comical set of about 3,000 lines of code in one R file. 
 Ask [my advisor](http://www.genomine.org/) about it sometime, he probably is still laughing about it. 
 
+
 What you need
 --------------------
 
 Here is what you need to start wrtiing
 
+
+Naming your package
+---------------------
+
+
+Versioning your package
+---------------------
+
+
+Documentation
+---------------------
+
+
+Vignettes
+---------------------
+
+
+Simple >>>> Complex
+---------------------
+
+
+
+Who should be an author?
+---------------------
+
+
+
+[Good writers borrow from other authors, great authors steal outright](http://www.brainyquote.com/quotes/quotes/a/aaronsorki405048.html)<sup>2</sup>
+---------------------
 
 
 About the author
@@ -62,5 +92,6 @@ he can sucker his students into contributing since they are much, much better R 
 
 1. These design requirements are subject to update and may not reflect Leek group software created before 9/18/2013 
 (or ever really, remember the perfect is the enemy of the very good).
+2. With proper attribution, of course.
 
 
