@@ -11,7 +11,7 @@ The purposes of this guide are:
 * To give you an introduction into the process/timing of creating an R package.
 * To help you figure out how to distribute/publicize your software.
 * To remind you that ["the perfect is the enemy of the very good"](http://en.wikipedia.org/wiki/Perfect_is_the_enemy_of_good).
-* To try to make sure Leek group software has a consistent design.[<sub>1</sup>][1]
+* To try to make sure Leek group software has a consistent design.[1][1]
 
 
 
