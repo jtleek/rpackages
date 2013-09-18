@@ -17,7 +17,7 @@ The purposes of this guide are:
 Why develop an R package?
 --------------------
 
-Cause you know, you do what your advisor says and stuff.
+Cause you know, you do what [your advisor](http://www.biostat.jhsph.edu/~jleek/) says and stuff.
 
 But there are some real reasons to write software as a statistician that I think are critically important:
 
@@ -31,11 +31,32 @@ other places) that I use. It is the number one way to get your name out there in
 3. If you write a software package you need for yourself, you will save yourself tons of time in sourcing scripts,
 and remembering where all your code/functions are. 
 
+Most importantly might be that creating an R package is _building something_. It is something you can point to and
+say, "I made that". Leaving aside all the tangible benefits to your career, the profession, etc. it is maybe the
+most gratifying feeling you get when working on research. 
+
+
+When to start writing an R package
+---------------------
+
+As soon as you have 2 functions. Why 2? After you have more than one function it starts to get easy to lose track of
+what your functions do, it starts to be tempting to name your functions _foo_ or _tempfunction_ or some other such 
+nonsense. You are also tempted to put all of the functions in one file and just source it. That was what I did
+with my first project, which ended up being an epically comical set of about 3,000 lines of code in one R file. 
+Ask [my advisor](http://www.genomine.org/) about it sometime, he probably is still laughing about it. 
+
+What you need
+--------------------
+
+Here is what you need to start wrtiing
 
 
 
+About the author
+--------------------
 
-
+The first version of this tutorial was written by Jeff Leek ([@simplystats](https://twitter.com/simplystats)). Hopefully
+he can sucker his students into contributing since they are much, much better R programmers than he is. 
 
 ### Footnotes
 
