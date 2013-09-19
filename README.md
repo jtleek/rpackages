@@ -66,6 +66,7 @@ about it. Here are our rules:
 
 * Make it googleable - check by googling it.
 * Make sure there is no Bioconductor/CRAN package with the same name. 
+* No underscores, dashes or any other special characters/numbers if possible
 * Make it all lower case - people hate having to figure out caps in names of packages.
 * Make it memorable and if you want serious people to use it - not too cute. 
 * Make it as short as you possibly can while staying googleable.
@@ -100,7 +101,19 @@ Creating your package
 
 1. Create a [new Github repository](https://help.github.com/articles/create-a-repo). 
 2. Make the name of your repo the name of your package
-3. Cre
+3. Run this code to create your package
+
+```S
+
+## Load the libraries
+library(devtools)
+library(roxygen2)
+library(knitr)
+
+## Create the package directory
+create("packagename")
+
+```
 
 
 Documentation
