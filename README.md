@@ -55,6 +55,7 @@ To start writing an R package you need:
 * Your functions, each written in a separate file<sup>2</sup>.
 * At minimum the following packages installed: _devtools, roxygen2, knitr_.
 * If you are going to use C code: _Rcpp_
+* [Install git](https://help.github.com/articles/set-up-git)
 * A [github account](https://github.com/signup/free). 
 * To read [Hadley's intro](http://adv-r.had.co.nz/Package-basics.html)
 
