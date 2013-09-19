@@ -115,7 +115,7 @@ create("packagename")
 
 2. Create a [new Github repository](https://help.github.com/articles/create-a-repo) with the same name (packagename)
 3. In the _packagename_ directory on your local machine, run the commands: _git init_
-4. Then run: _git remote add origin git@github.com:yourusername/packagename.git
+4. Then run: _git remote add origin git@github.com:yourusername/packagename.git_
 5. Create a file in the _packagename_ directory called README.md
 6. Run the command: _git add ._
 7. Run the command: _git commit -m 'initial commit'_
