@@ -99,12 +99,9 @@ sure that they are compatible.
 Creating your package
 ---------------------
 
-1. Create a [new Github repository](https://help.github.com/articles/create-a-repo). 
-2. Make the name of your repo the name of your package
-3. Run this code to create your package
+1. Run this code to create your package
 
 ```S
-
 ## Load the libraries
 library(devtools)
 library(roxygen2)
@@ -112,9 +109,10 @@ library(knitr)
 
 ## Create the package directory
 create("packagename")
-
 ```
 
+2. Create a [new Github repository](https://help.github.com/articles/create-a-repo) with the same name (packagename)
+3. Go into the directory 
 
 Documentation
 ---------------------
