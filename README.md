@@ -100,7 +100,8 @@ sure that they are compatible.
 Creating your package
 ---------------------
 
-1. Run this code to create your package
+1. Run this code from R to create your package. It will create a directory called _packagename_ and put some stuff in it 
+(more on this stuff in a second). 
 
 ```S
 ## Load the libraries
@@ -113,7 +114,8 @@ create("packagename")
 ```
 
 2. Create a [new Github repository](https://help.github.com/articles/create-a-repo) with the same name (packagename)
-3. Go into the directory 
+3. In the _packagename_ directory run the command: _git init_
+4. Create a file in the _packagename_ directory called README.md
 
 Documentation
 ---------------------
