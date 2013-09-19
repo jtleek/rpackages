@@ -21,7 +21,7 @@ Cause you know, you do what [your advisor](http://www.biostat.jhsph.edu/~jleek/)
 
 But there are some real reasons to write software as a statistician that I think are critically important:
 
-1. You probably got into statistics to have an impaact. If you work with Jeff it was probably to have an impact 
+1. You probably got into statistics to have an impact. If you work with Jeff it was probably to have an impact 
 on human health or statistics. Either way, one of the most direct and quantifiable ways to have an impact on the
 world is to write software that other scientists, educators, and statisticians use. If you write a stats method paper
 with no software the chance of impacting the world is dramatically reduced. 
@@ -86,7 +86,7 @@ Basically:
 * Increase y for minor changes
 * Increase x for major changes
 
-The only problem is we have to stay in line with Bioconductor's requirments because we want to publish most of our
+The only problem is we have to stay in line with Bioconductor's requirements because we want to publish most of our
 packages to Bioconductor. For that reason:
 
 * y must be odd when you submit a devel package to Bioc
@@ -114,8 +114,12 @@ create("packagename")
 ```
 
 2. Create a [new Github repository](https://help.github.com/articles/create-a-repo) with the same name (packagename)
-3. In the _packagename_ directory run the command: _git init_
-4. Create a file in the _packagename_ directory called README.md
+3. In the _packagename_ directory on your local machine, run the commands: _git init_
+4. Then run: _git remote add origin git@github.com:yourusername/packagename.git
+5. Create a file in the _packagename_ directory called README.md
+6. Run the command: _git add ._
+7. Run the command: _git commit -m 'initial commit'_
+8. Run the command: _git push -u origin master_
 
 Documentation
 ---------------------
