@@ -49,19 +49,63 @@ Ask [my advisor](http://www.genomine.org/) about it sometime, he probably is sti
 What you need
 --------------------
 
-Here is what you need to start wrtiing
+To start writing an R package you need:
 
+* R - I mean, unless you are a wizard.
+* Your functions, each written in a separate file<sup>2</sup>.
+* At minimum the following packages installed: _devtools, roxygen2, knitr_.
+* If you are going to use C code: _Rcpp_
+* A [github account](https://github.com/signup/free). 
+* To read [Hadley's intro](http://adv-r.had.co.nz/Package-basics.html)
 
 Naming your package
 ---------------------
+
+The first step in creating your R package is to give it a name. Hadley [has some ideas](http://adv-r.had.co.nz/Package-basics.html)
+about it. Here are our rules:
+
+* Make it googleable - check by googling it.
+* Make sure there is no Bioconductor/CRAN package with the same name. 
+* Make it all lower case - people hate having to figure out caps in names of packages.
+* Make it memorable and if you want serious people to use it - not too cute. 
+* Make it as short as you possibly can while staying googleable.
+* Never, under any circumstances, let Rafa or Hector name your package.<sup>3</sup> 
 
 
 Versioning your package
 ---------------------
 
+I like [Yihui's approach](http://yihui.name/en/2013/06/r-package-versioning/). Let's use that. 
+
+Basically:
+
+* Use format x.y.z.
+* Increase z for minor bug fixes
+* Increase y for minor changes
+* Increase x for major changes
+
+The only problem is we have to stay in line with Bioconductor's requirments because we want to publish most of our
+packages to Bioconductor. For that reason:
+
+* y must be odd when you submit a devel package to Bioc
+* Let's make z 0 for packages we submit as devel to Bioc
+
+Note that Bioc will bump the y value to an even value in release and make the new devel version the next number 
+up from that. Once your package is on Bioc, you'll have to keep track of the two version numbers and make
+sure that they are compatible. 
+
+
+Creating your package
+---------------------
+
+1. Create a [new Github repository](https://help.github.com/articles/create-a-repo). 
+2. Make the name of your repo the name of your package
+3. Cre
+
 
 Documentation
 ---------------------
+
 
 
 Vignettes
@@ -78,7 +122,7 @@ Who should be an author?
 
 
 
-[Good writers borrow from other authors, great authors steal outright](http://www.brainyquote.com/quotes/quotes/a/aaronsorki405048.html)<sup>2</sup>
+[Good writers borrow from other authors, great authors steal outright](http://www.brainyquote.com/quotes/quotes/a/aaronsorki405048.html)<sup>4/sup>
 ---------------------
 
 
@@ -92,6 +136,8 @@ he can sucker his students into contributing since they are much, much better R 
 
 1. These design requirements are subject to update and may not reflect Leek group software created before 9/18/2013 
 (or ever really, remember the perfect is the enemy of the very good).
-2. With proper attribution, of course.
+2. Except for utility functions, more on this later. 
+3. Ask me about the time they named one of my packages "succs"
+4. With proper attribution, of course.
 
 
