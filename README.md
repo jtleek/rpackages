@@ -164,10 +164,10 @@ _Jeff Leek <jleek@jhsph.edu>_ and should be comma separated.
 * A maintainer field should be added with maintainers listed as comma separated files. You are the maintainer of your
 package when you create it. See the section below on after you leave the Leek group for more information. 
 * The dependencies (other R packages your software uses/depends on) should be listed in a comma separated list after
-the R version. 
+the R version. One of the dependencies should be the _kntir_ package for the vignette. 
 * The License is required to be open source. I like GPL-2 or GPL-3 or the creative commons licences like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/)
 [this](http://www.tldrlegal.com/) is a good website for learning more about software licenses. 
-
+* You should add a line _VignetteBuilder: knitr_ 
 
 Documentation
 ---------------------
@@ -188,18 +188,34 @@ Documentation has two main components. The first component is help files, which 
 component is vignettes which will go in a folder called inst/doc/ which you will have to create. I'll tackle 
 each of these separately. 
 
-Help (man) files
-------------
+### Help (man) files
+
 
 These files document each of the functions/methods/classes you will expose to your users. The good news is that
 you don't have to write these files yoursef. You will use the _roxygen2_ package to create the man files. To use
 _roxygen2_ you will need to document your functions in the .R files with comments formated in a specific way. Right
-before your functions you should have a set of comments 
+before your functions you should have a set of comments that are denoted by the symbol _#'_. They are structured in 
+the following way:
+
+```S
+#' A one sentence description of what your function does
+#' 
+#' A more detailed description of what the function is and how
+#' it works. It may be a paragraph that should not be separated
+#' by any spaces. 
+#'
+#' @param inputParameter2 A description of the input paramater parameterName1
+#' @param inputParameter1 A description of the input parameter parameterName2
+#'
+#' 
+
+
+```
 
 
 
-Vignettes
----------------------
+### Vignettes
+
 
 
 Simple >>>> Complex
