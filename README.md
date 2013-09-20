@@ -98,6 +98,7 @@ Immediately after releasing, if you plan to keep working on the project, you sho
 Thereafter, again you should keep increasing z every time you make a public change. If you do a major reorganization
 you should increase y. 
 
+
 Creating your package
 ---------------------
 
@@ -151,12 +152,21 @@ called _leek-plot-method.R_.
 
 ### DESCRIPTION 
 
-The DESCRIPTION file is a plain text file that gets generated with the _create_ command. The packagename should
-go after the coon on the first line. The package title should be a one sentence description of what the package
-actually does. The version should be defined as described above. The authors field may have a @R before the colon
-which should be deleted. The authors should be in the format _author name <authoremail@host.com>_ for example: 
-_Jeff Leek <jleek@jhsph.edu>_ and should be comma separated. 
+The DESCRIPTION file is a plain text file that gets generated with the _create_ command. 
 
+* The package name should go after the colon on the first line. 
+* The package title should be a one sentence description of what the package actually does. 
+* The description should be a one paragraph description that builds on the title. It should give a user
+some idea about what kind of data your software should be used on, what the inputs are and what the outputs are. 
+* The version should be defined as described above. 
+* The authors field may have a @R before the colon which should be deleted. The authors should be in the format _author name <authoremail@host.com>_ for example: 
+_Jeff Leek <jleek@jhsph.edu>_ and should be comma separated. 
+* A maintainer field should be added with maintainers listed as comma separated files. You are the maintainer of your
+package when you create it. See the section below on after you leave the Leek group for more information. 
+* The dependencies (other R packages your software uses/depends on) should be listed in a comma separated list after
+the R version. 
+* The License is required to be open source. I like GPL-2 or GPL-3 or the creative commons licences like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/)
+[this](http://www.tldrlegal.com/) is a good website for learning more about software licenses. 
 
 
 Documentation
@@ -166,7 +176,26 @@ This is how I feel about the relative importance of various components of statis
 
 ![documentation](https://raw.github.com/jtleek/rpackages/master/documentation.png)
 
-The most frustrating thing 
+Ideally your software is easy to understand and just works. But this isn't Apple and you don't have a legion
+of test users to try it out for you. So more likely than not, at least the first several versions of your 
+software will be at least a little hard to use. The first versions will also probably be slower than you would
+like them to be. 
+
+But if your software solves a real problem (it should!) and is well documented (it will be!) then people will
+use it and you will have a positive impact on the world. 
+
+Documentation has two main components. The first component is help files, which go into the man folder. The second 
+component is vignettes which will go in a folder called inst/doc/ which you will have to create. I'll tackle 
+each of these separately. 
+
+Help (man) files
+------------
+
+These files document each of the functions/methods/classes you will expose to your users. The good news is that
+you don't have to write these files yoursef. You will use the _roxygen2_ package to create the man files. To use
+_roxygen2_ you will need to document your functions in the .R files with comments formated in a specific way. Right
+before your functions you should have a set of comments 
+
 
 
 Vignettes
