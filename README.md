@@ -1,4 +1,3 @@
-
 Developing R packages
 ================
 
@@ -61,6 +60,7 @@ To start writing an R package you need:
 * [Install git](https://help.github.com/articles/set-up-git)
 * A [github account](https://github.com/signup/free). 
 * To read [Hadley's intro](http://adv-r.had.co.nz/Package-basics.html)
+* To read [Karl's Github tutorial](http://kbroman.github.io/github_tutorial/)
 
 Naming your package
 ---------------------
@@ -139,15 +139,23 @@ The parts of an R package
 ### R functions
 
 The R functions you have written go in the R/ directory in the _packagename_ folder. Each of your R functions
-should go in a separate file with a .R extension. We are going to use capital R for the 
-extension. 
+should go in a separate file with a .R extension. We are going to use capital R for the extension of the files. 
 
 Why? Don't ask questions. 
+
+If you define a new class call the .R file _classname-class.R_. For example, if you are creating the leek class of objects
+it would be called _leek-class.R_. If you are defining a new method for the class it should
+be named _newclass-methodname-method.R_. For example, a plotting method for the leek class would go in a .R file
+called _leek-plot-method.R_. 
 
 
 ### DESCRIPTION 
 
-The DESCRIPTION file you have 
+The DESCRIPTION file is a plain text file that gets generated with the _create_ command. The packagename should
+go after the coon on the first line. The package title should be a one sentence description of what the package
+actually does. The version should be defined as described above. The authors field may have a @R before the colon
+which should be deleted. The authors should be in the format _author name <authoremail@host.com>_ for example: 
+_Jeff Leek <jleek@jhsph.edu>_ and should be comma separated. 
 
 
 
