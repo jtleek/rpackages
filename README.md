@@ -1,3 +1,4 @@
+
 Developing R packages
 ================
 
@@ -39,7 +40,9 @@ most gratifying feeling you get when working on research.
 When to start writing an R package
 ---------------------
 
-As soon as you have 2 functions. Why 2? After you have more than one function it starts to get easy to lose track of
+As soon as you have 2 functions. 
+
+Why 2? After you have more than one function it starts to get easy to lose track of
 what your functions do, it starts to be tempting to name your functions _foo_ or _tempfunction_ or some other such 
 nonsense. You are also tempted to put all of the functions in one file and just source it. That was what I did
 with my first project, which ended up being an epically comical set of about 3,000 lines of code in one R file. 
@@ -77,30 +80,28 @@ about it. Here are our rules:
 Versioning your package
 ---------------------
 
-I like [Yihui's approach](http://yihui.name/en/2013/06/r-package-versioning/). Let's use that. 
+Almost all of our packages will eventually go on Bioconductor. So we are going to use the [versioning
+scheme](http://www.bioconductor.org/developers/version-numbering/) that is compatible with that platform (with some helpful suggestions from [Kasper H.](http://www.biostat.jhsph.edu/~khansen/)).
 
-Basically:
+The format of the version number will always be x.y.z. When you start any new package the version number should be
+0.1.0. Every time you make any change public (e.g., push to Github) you should increase z in the version number. If 
+you are making local commits but not making them public to other people you don't need to increase z. You should 
+stay in version 0.1.z basically up until you are ready to submit to Bioconductor (or CRAN) for release. 
 
-* Use format x.y.z.
-* Increase z for minor bug fixes
-* Increase y for minor changes
-* Increase x for major changes
+Before release you can increase y if you perform a major redesign of how the functions are organized or are used. You
+should never increase x before release. 
 
-The only problem is we have to stay in line with Bioconductor's requirements because we want to publish most of our
-packages to Bioconductor. For that reason:
+The first time you submit the package to Bioconductor you should submit it as version number 0.99.z. That way on the next 
+release of Bioconductor it will get bumped to 1.0.0. The next devel version will get bumped to 1.1.0 on Bioconductor.
+Immediately after releasing, if you plan to keep working on the project, you should bump your version on Github to 1.1.0.
 
-* y must be odd when you submit a devel package to Bioc
-* Let's make z 0 for packages we submit as devel to Bioc
-
-Note that Bioc will bump the y value to an even value in release and make the new devel version the next number 
-up from that. Once your package is on Bioc, you'll have to keep track of the two version numbers and make
-sure that they are compatible. 
-
+Thereafter, again you should keep increasing z every time you make a public change. If you do a major reorganization
+you should increase y. 
 
 Creating your package
 ---------------------
 
-1. Run this code from R to create your package. It will create a directory called _packagename_ and put some stuff in it 
+Run this code from R to create your package. It will create a directory called _packagename_ and put some stuff in it 
 (more on this stuff in a second). 
 
 ```S
@@ -113,13 +114,42 @@ library(knitr)
 create("packagename")
 ```
 
-2. Create a [new Github repository](https://help.github.com/articles/create-a-repo) with the same name (packagename)
-3. In the _packagename_ directory on your local machine, run the commands: _git init_
-4. Then run: _git remote add origin git@github.com:yourusername/packagename.git_
-5. Create a file in the _packagename_ directory called README.md
-6. Run the command: _git add ._
-7. Run the command: _git commit -m 'initial commit'_
-8. Run the command: _git push -u origin master_
+
+Put your package on Github
+-----------------------
+
+All packages that are developed by the Leek group will be hosted on Github. The accounts are free and
+it makes it so much easier to share code/get other people to help you with your code. Here are the
+steps to getting your package on Github:
+
+
+1. Create a [new Github repository](https://help.github.com/articles/create-a-repo) with the same name (packagename)
+2. In the _packagename_ directory on your local machine, run the commands: _git init_
+3. Then run: _git remote add origin git@github.com:yourusername/packagename.git_
+4. Create a file in the _packagename_ directory called README.md
+5. Run the command: _git add ._
+6. Run the command: _git commit -m 'initial commit'_
+7. Run the command: _git push -u origin master_
+
+
+
+The parts of an R package
+--------------------
+
+### R functions
+
+The R functions you have written go in the R/ directory in the _packagename_ folder. Each of your R functions
+should go in a separate file with a .R extension. We are going to use capital R for the 
+extension. 
+
+Why? Don't ask questions. 
+
+
+### DESCRIPTION 
+
+The DESCRIPTION file you have 
+
+
 
 Documentation
 ---------------------
@@ -128,6 +158,7 @@ This is how I feel about the relative importance of various components of statis
 
 ![documentation](https://raw.github.com/jtleek/rpackages/master/documentation.png)
 
+The most frustrating thing 
 
 
 Vignettes
