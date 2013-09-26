@@ -273,6 +273,17 @@ Who should be an author?
 [Good writers borrow from other authors, great authors steal outright](http://www.brainyquote.com/quotes/quotes/a/aaronsorki405048.html)<sup>4</sup>
 ---------------------
 
+One thing I think a lot of academics (definitely including myself here) struggle with is the need to be "new" and 
+"innovative" with everything they do. There is a strong [selective pressure](http://en.wikipedia.org/wiki/Evolutionary_pressure)
+for these qualities in academia.
+
+But when writing software it is very, very important not to reinvent every single wheel you see. One person who 
+is awesome at blending existing tools and exponentially building value is [Ramnath Vaidyanathan](https://github.com/ramnathv).
+He built [slidify](https://github.com/ramnathv/slidify) on top of knitr and [rCharts](https://github.com/ramnathv/rCharts) 
+on top of existing D3 libraries. They allowed him to create awesome software without having to solve every single problem.
+
+
+
 
 About the author
 --------------------
