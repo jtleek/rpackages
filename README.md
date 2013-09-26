@@ -214,6 +214,8 @@ the following way:
 #' @param inputParameter2 A description of the input paramater parameterName1
 #' @param inputParameter1 A description of the input parameter parameterName2
 #'
+#' @return output A description of the object the function outputs 
+#'
 #' @keywords keywords
 #'
 #' @export
@@ -240,6 +242,20 @@ deals with collation and namespaces.
 
 ### Vignettes
 
+Documentation in the help files is important and is the primary way that people will figure out your functions if they
+get stuck. But it is equally (maybe more) critical that you help people _get started_. The way that you do that is to
+create a vignette. For our purposes, a vignette is a tutorial that includes the following components:
+
+* A short introduction that explains 
+  * The type of data the package can be used on
+  * The general purpose of the functions in the package
+* One or more example analyses with
+  * A small, real data set
+  * An explanation of the key functions
+  * An application of these functions to the data
+  * A description of the ouput and how it can be used
+  
+The vignette is placed in a Sweave file (with extension .Rnw) in the directory packagename/inst/doc/. The 
 
 
 
