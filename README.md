@@ -77,9 +77,9 @@ about it. Here are our rules:
 
 * Make it googleable - check by googling it.
 * Make sure there is no Bioconductor/CRAN package with the same name. 
-* No underscores, dashes or any other special characters/numbers if possible
+* No underscores, dashes or any other special characters/numbers
 * Make it all lower case - people hate having to figure out caps in names of packages.
-* Make it memorable and if you want serious people to use it - not too cute. 
+* Make it memorable and if you want serious people to use it - but don't be too cute. 
 * Make it as short as you possibly can while staying googleable.
 * Never, under any circumstances, let Rafa or Hector name your package.<sup>3</sup> 
 
@@ -214,10 +214,27 @@ the following way:
 #' @param inputParameter2 A description of the input paramater parameterName1
 #' @param inputParameter1 A description of the input parameter parameterName2
 #'
+#' @keywords keywords
+#'
+#' @export
 #' 
+#' @examples
+#' R code here showing how your function works
 
-
+myfunction <- function(...){}
 ```
+You include the _@export_ command if you want the function to be exported (i.e. visable) to your end users. Hadley has a pretty comprehensive [guide](http://adv-r.had.co.nz/Documenting-functions.html) where you can 
+learn a lot more about how _roxygen_ works. Your function follows immediately after the comments. 
+
+When you have saved functions with _roxygen2_ style comments you can create the .Rd files (the man files themselves) 
+by running:
+
+```S
+document("packagename")
+```
+on the package folder. The package folder must be in the current working directory where you are editing. 
+
+This is a super brief introduction to a much more 
 
 
 
