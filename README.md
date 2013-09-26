@@ -1,5 +1,5 @@
 Developing R packages
-================
+------------------
 
 As a modern statistician, one of the most fundamental contributions you can make is to create and distribute
 software that implements the methods you develop. I have gone so far as to say if you write a paper without
@@ -12,6 +12,13 @@ The purposes of this guide are:
 * To help you figure out how to distribute/publicize your software.
 * To remind you that ["the perfect is the enemy of the very good"](http://en.wikipedia.org/wiki/Perfect_is_the_enemy_of_good).
 * To try to make sure Leek group software has a consistent design.<sup>1</sup>
+
+
+Data analyses
+------------------
+
+Stay tuned for the Leek group approach to building/sharing data analyses. 
+
 
 
 Why develop an R package?
