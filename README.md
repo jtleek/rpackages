@@ -234,11 +234,13 @@ document("packagename")
 ```
 on the package folder. The package folder must be in the current working directory where you are editing. 
 
-This is a super brief introduction to a much more 
-
+Please read Hadley's [guide](http://adv-r.had.co.nz/Documenting-functions.html) in its entirety to understand how to document packages and in particular, how _roxygen2_ 
+deals with collation and namespaces. 
 
 
 ### Vignettes
+
+
 
 
 
