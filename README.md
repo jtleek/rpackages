@@ -303,6 +303,26 @@ that, since I think those things are cool, probably the future, and can certainl
 they present a potentially major difficulty in maintainence and should be placed in separate packages on your own repository. 
 
 
+Unit tests
+---------------------
+
+For now, unit tests aren't a required component of packages in the Leek group. On the other hand, they can be hugely useful,
+especially as you maintain packages that you haven't worked on in a while. My suggestion is to use the [testthat](http://adv-r.had.co.nz/Testing.html)
+framework to build tests before you leave (or Bioconductor's [unit testing](http://www.bioconductor.org/developers/unitTesting-guidelines/))
+A couple of suggestions:
+
+* Organize your tests into contexts (groups of tests) and name them.
+* Have some tests that test the basic helper functions on fixed data.
+* Have some tests that check the output of your main functions on fixed data. 
+
+
+Dummy proofing
+---------------------
+
+No matter how careful you are
+
+
+
 Your commitment
 ---------------------
 
@@ -327,7 +347,8 @@ will be as low as possible. Specifically:
 * Only create functions that are absolutely necessary for the package. It is hard to delete functions from a package
 after it is released without messing with users and adds to the maintainence headache each time you keep one in. 
 * Make the vignette really clear and add a FAQ with questions you get from users while you are still in the Leek group. 
-* 
+* Add comments to your code/unit tests so that when something breaks you can find/fix the problem quickly. 
+
 
 
 About the author
