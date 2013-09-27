@@ -260,11 +260,6 @@ The vignette is placed in a Sweave file (with extension .Rnw) in the directory p
 
 
 
-Simple >>>> Complex
----------------------
-
-
-
 Who should be an author?
 ---------------------
 
@@ -282,7 +277,57 @@ is awesome at blending existing tools and exponentially building value is [Ramna
 He built [slidify](https://github.com/ramnathv/slidify) on top of knitr and [rCharts](https://github.com/ramnathv/rCharts) 
 on top of existing D3 libraries. They allowed him to create awesome software without having to solve every single problem.
 
+Before writing general purpose functions (say for regression or for calculating p-values or for making plots) make sure
+you search for functions that already exist (or ask Jeff/your fellow students if you aren't sure).
 
+An important and balancing principle is that you should try to keep the number of dependencies for your package as 
+small as possible. You should also try to use packages that you trust will be maintained. Some ways to tell if a package
+is "trustworthy" are to check the number of downloads/users (higher is better), check to see if the package is being
+actively updated (on Github/Bioconductor/CRAN) and there is a history of updates, and check to see if the authors of the
+packages routinely maintain important packages (like Hadley, Yihui, Ramnath, Martin Morgan, etc.). Keep in mind your
+commitment (see below) when making decisions about whose functions to use. 
+
+Simple >>>> Complex
+---------------------
+
+A major temptation for everyone creating code is to generate a bunch of features they think that users will want without
+actually testing those features out. The problem is that each new feature you create in your package will monotonically
+increase the number of dependencies and the amount of code you have to maintain. In general, the principle should be
+to create exactly enough functions that the users can install your package, perform your analysis, and return the results.
+
+Specifically, be wary of things like GUIs or Shiny apps. Given the heavy emphasis placed on reproducibility these days,
+it is rarely the case that real/important analyses will be performed in a point and click format. 
+
+If you are way into creating products that point-and-click users will be interested in I'm very happy to support you in 
+that, since I think those things are cool, probably the future, and can certainly raise the interest in your work. But
+they present a potentially major difficulty in maintainence and should be placed in separate packages on your own repository. 
+
+
+Your commitment
+---------------------
+
+You are vested in creating the software you are working on now since it is part of your training and will definitely
+help your short term career in terms of getting jobs/gaining visibility. But your time as a graduate student is
+(happily for you) limited. After a few years you will graduate and head off to an awesome job. The software you 
+built as a student may be less important to you. 
+
+Hopefully, though, it is still very important to the users who are applying that software to solve the most pressing
+problems in molecular biology and medicine. It is unfair to those users if your software breaks down and can't be
+installed/used. 
+
+So if you undertake a research project in the Leek group which involves software development (pretty much all of them will)
+you commit to maintaining that software for at least 5 years after you graduate. Of course, I can't hold you to that
+like a contract or anything, but think of it as an honor thing. 
+
+5 years is a long time. It is most of the way toward tenure (in academia) or probably 3 years after you have started your
+own awesome company and appeared on Techcrunch. So it is worth thinking about ways you can ensure that the maintainence
+will be as low as possible. Specifically:
+
+* Make the dependencies as minimal as possible. If your dependencies update, you'll have to update the software
+* Only create functions that are absolutely necessary for the package. It is hard to delete functions from a package
+after it is released without messing with users and adds to the maintainence headache each time you keep one in. 
+* Make the vignette really clear and add a FAQ with questions you get from users while you are still in the Leek group. 
+* 
 
 
 About the author
