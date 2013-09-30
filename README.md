@@ -154,6 +154,11 @@ git commit -m 'initial commit'
 git push -u origin master
 ```
 
+* Use commit messages that will help you remember what you did and why you did it.
+* If you interact very frequently with [GitHub](https://github.com) you will be interested on [setting up SSH keys](https://help.github.com/articles/generating-ssh-keys) to avoid typing your password every time you push/pull.
+* You can mark specific versions of your package [using Git Tags](http://git-scm.com/book/en/Git-Basics-Tagging) which allows you to easily check the state of the package at that particular version.
+* If more than one person is working on developing the package or you want to contribute to one, check [how to fork a repository](https://help.github.com/articles/fork-a-repo). It is an easy way to contribute and with a very low burden on the maintainer.
+* Consider whether you want users to report issues to your package. It is a very good framework for issue management, but can lead to duplicate information if the main issue reporting/tracking is a mailing list like in the case of [Bioconductor](http://www.bioconductor.org/) packages. For an example of how GitHub's issue system looks like check the [rCharts issues](https://github.com/ramnathv/rCharts/issues?state=closed).
 
 The parts of an `R` package
 --------------------
