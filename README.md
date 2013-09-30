@@ -404,7 +404,6 @@ library("devtools")
 check_doc("packagename") ## Only for checking the documentation
 system.time(check("packagename")) ## R CMD check
 ```
-
 2. Update the version number and push to [GitHub](https://github.com/). In the commit comments, state it is the version being 
 pushed to [Bioconductor](http://www.bioconductor.org/).
 3. Send an email as described in the checklist stating that you want an account and want to submit a package. 
