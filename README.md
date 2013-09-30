@@ -81,7 +81,7 @@ about it. Here are our rules:
 * Make it all lower case - people hate having to figure out caps in names of packages.
 * Make it memorable; if you want serious people to use it don't be too cute. 
 * Make it as short as you possibly can while staying googleable.
-* Never, under any circumstances, let Rafa or Hector name your package.<sup>3</sup> 
+* Never, under any circumstances, let [Rafa](http://rafalab.dfci.harvard.edu/) or [Hector](http://www.cbcb.umd.edu/~hcorrada/) name your package.<sup>3</sup> 
 
 
 Versioning your package
@@ -117,9 +117,9 @@ Run this code from `R` to create your package. It will create a directory called
 install.packages(c("devtools", "roxygen2", "knitr"))
 
 ## Load the libraries
-library(devtools)
-library(roxygen2)
-library(knitr)
+library("devtools")
+library("roxygen2")
+library("knitr")
 
 ## Create the package directory
 create("packagename")
@@ -198,11 +198,11 @@ Package: packagename
 Type: Package
 Title: A sentence
 Version: 0.1.0
-Date: 2013-09-27
+Date: 2013-09-30
 Authors@R: c(person("Jeff", "Leek", role = c("aut", "cre", "ths"),
     email = "jleek@jhsph.edu"))
 Depends:
-    R(>= 3.0.1),
+    R(>= 3.0.2),
 	knitr
 Suggests:
     knitr,
@@ -258,7 +258,10 @@ the following way:
 #' @examples
 #' R code here showing how your function works
 
-myfunction <- function(inputParameter1, inputParameter2){}
+myfunction <- function(inputParameter1, inputParameter2){
+	## Awesome code!
+	return(result)
+}
 ```
 You include the _@export_ command if you want the function to be exported (i.e. visible) to your end users. [Hadley](http://had.co.nz/) has a pretty comprehensive [guide](http://adv-r.had.co.nz/Documenting-functions.html) where you can 
 learn a lot more about how _roxygen_ works. Your function follows immediately after the comments. 
@@ -272,7 +275,7 @@ document("packagename")
 on the package folder. The package folder must be in the current working directory where you are editing. 
 
 Please read [Hadley](http://had.co.nz/)'s [guide](http://adv-r.had.co.nz/Documenting-functions.html) in its entirety to understand how to document packages and in particular, how [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) 
-deals with collation and namespaces. 
+deals with [collation](http://cran.r-project.org/doc/manuals/R-exts.html#The-DESCRIPTION-file) and [namespaces](http://cran.r-project.org/doc/manuals/R-exts.html#Package-namespaces). 
 
 
 ### Vignettes
@@ -393,7 +396,13 @@ get ready to release it to [Bioconductor](http://www.bioconductor.org/).
 The steps in releasing to [Bioconductor](http://www.bioconductor.org/) are:
 
 1. Follow [Bioconductor](http://www.bioconductor.org/)'s [checklist](http://www.bioconductor.org/developers/package-submission/) to confirm
-the package is ready to upload
+the package is ready to upload.
+	* In particular, check that your package passes R CMD check in less than 5 minutes. You can use
+```S
+library("devtools")
+check_doc("packagename") ## Only for checking the documentation
+system.time(check("packagename")) ## R CMD check
+```
 2. Update the version number and push to [GitHub](https://github.com/). In the commit comments, state it is the version being 
 pushed to [Bioconductor](http://www.bioconductor.org/).
 3. Send an email as described in the checklist stating that you want an account and want to submit a package. 
@@ -419,7 +428,7 @@ you commit to maintaining that software for at least 5 years after you graduate.
 like a contract or anything, but think of it as an honor thing. 
 
 5 years is a long time. It is most of the way toward tenure (in academia) or probably 3 years after you have started your
-own awesome company and appeared on Techcrunch. So it is worth thinking about ways you can ensure that the maintainence
+own awesome company and appeared on [Techcrunch](http://techcrunch.com/). So it is worth thinking about ways you can ensure that the maintainence
 will be as low as possible. Specifically:
 
 * Make the dependencies as minimal as possible. If your dependencies update, you'll have to update the software.
