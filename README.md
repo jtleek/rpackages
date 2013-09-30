@@ -11,13 +11,13 @@ The purposes of this guide are:
 * To give you an introduction into the process/timing of creating an R package.
 * To help you figure out how to distribute/publicize your software.
 * To remind you that ["the perfect is the enemy of the very good"](http://en.wikipedia.org/wiki/Perfect_is_the_enemy_of_good).
-* To try to make sure Leek group software has a consistent design.<sup>1</sup>
+* To try to make sure [Leek group](http://www.biostat.jhsph.edu/~jleek/) software has a consistent design.<sup>1</sup>
 
 
 Data analyses
 ------------------
 
-Stay tuned for the Leek group approach to building/sharing data analyses. 
+Stay tuned for the [Leek group](http://www.biostat.jhsph.edu/~jleek/) approach to building/sharing data analyses. 
 
 
 
@@ -28,7 +28,7 @@ Cause you know, you do what [your advisor](http://www.biostat.jhsph.edu/~jleek/)
 
 But there are some real reasons to write software as a statistician that I think are critically important:
 
-1. You probably got into statistics to have an impact. If you work with Jeff it was probably to have an impact 
+1. You probably got into statistics to have an impact. If you work with [Jeff](http://www.biostat.jhsph.edu/~jleek/) it was probably to have an impact 
 on human health or statistics. Either way, one of the most direct and quantifiable ways to have an impact on the
 world is to write software that other scientists, educators, and statisticians use. If you write a stats method paper
 with no software the chance of impacting the world is dramatically reduced. 
@@ -76,7 +76,7 @@ The first step in creating your R package is to give it a name. Hadley [has some
 about it. Here are our rules:
 
 * Make it googleable - check by googling it.
-* Make sure there is no Bioconductor/CRAN package with the same name. 
+* Make sure there is no [Bioconductor](http://www.bioconductor.org/)/[CRAN](http://cran.r-project.org/) package with the same name. 
 * No underscores, dashes or any other special characters/numbers
 * Make it all lower case - people hate having to figure out caps in names of packages.
 * Make it memorable and if you want serious people to use it - but don't be too cute. 
@@ -87,20 +87,20 @@ about it. Here are our rules:
 Versioning your package
 ---------------------
 
-Almost all of our packages will eventually go on Bioconductor. So we are going to use the [versioning
+Almost all of our packages will eventually go on [Bioconductor](http://www.bioconductor.org/). So we are going to use the [versioning
 scheme](http://www.bioconductor.org/developers/version-numbering/) that is compatible with that platform (with some helpful suggestions from [Kasper H.](http://www.biostat.jhsph.edu/~khansen/)).
 
 The format of the version number will always be x.y.z. When you start any new package the version number should be
-0.1.0. Every time you make any change public (e.g., push to Github) you should increase z in the version number. If 
+0.1.0. Every time you make any change public (e.g., push to [GitHub](https://github.com/)) you should increase z in the version number. If 
 you are making local commits but not making them public to other people you don't need to increase z. You should 
-stay in version 0.1.z basically up until you are ready to submit to Bioconductor (or CRAN) for release. 
+stay in version 0.1.z basically up until you are ready to submit to [Bioconductor](http://www.bioconductor.org/) (or [CRAN](http://cran.r-project.org/)) for release. 
 
 Before release you can increase y if you perform a major redesign of how the functions are organized or are used. You
 should never increase x before release. 
 
-The first time you submit the package to Bioconductor you should submit it as version number 0.99.z. That way on the next 
-release of Bioconductor it will get bumped to 1.0.0. The next devel version will get bumped to 1.1.0 on Bioconductor.
-Immediately after releasing, if you plan to keep working on the project, you should bump your version on Github to 1.1.0.
+The first time you submit the package to [Bioconductor](http://www.bioconductor.org/) you should submit it as version number 0.99.z. That way on the next 
+release of [Bioconductor](http://www.bioconductor.org/) it will get bumped to 1.0.0. The next devel version will get bumped to 1.1.0 on [Bioconductor](http://www.bioconductor.org/).
+Immediately after releasing, if you plan to keep working on the project, you should bump your version on [GitHub](https://github.com/) to 1.1.0.
 
 Thereafter, again you should keep increasing z every time you make a public change. If you do a major reorganization
 you should increase y. 
@@ -123,12 +123,12 @@ create("packagename")
 ```
 
 
-Put your package on Github
+Put your package on [GitHub](https://github.com/)
 -----------------------
 
-All packages that are developed by the Leek group will be hosted on Github. The accounts are free and
+All packages that are developed by the [Leek group](http://www.biostat.jhsph.edu/~jleek/) will be hosted on [GitHub](https://github.com/). The accounts are free and
 it makes it so much easier to share code/get other people to help you with your code. Here are the
-steps to getting your package on Github:
+steps to getting your package on [GitHub](https://github.com/):
 
 
 1. Create a [new Github repository](https://help.github.com/articles/create-a-repo) with the same name (packagename)
@@ -169,7 +169,7 @@ some idea about what kind of data your software should be used on, what the inpu
 * The authors field may have a @R before the colon which should be deleted. The authors should be in the format _author name <authoremail@host.com>_ for example: 
 _Jeff Leek <jleek@jhsph.edu>_ and should be comma separated. 
 * A maintainer field should be added with maintainers listed as comma separated files. You are the maintainer of your
-package when you create it. See the section below on after you leave the Leek group for more information. 
+package when you create it. See the section below on after you leave the [Leek group](http://www.biostat.jhsph.edu/~jleek/) for more information. 
 * The dependencies (other R packages your software uses/depends on) should be listed in a comma separated list after
 the R version. One of the dependencies should be the _kntir_ package for the vignette. 
 * The License is required to be open source. I like GPL-2 or GPL-3 or the creative commons licences like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/)
@@ -226,7 +226,7 @@ the following way:
 
 myfunction <- function(...){}
 ```
-You include the _@export_ command if you want the function to be exported (i.e. visable) to your end users. Hadley has a pretty comprehensive [guide](http://adv-r.had.co.nz/Documenting-functions.html) where you can 
+You include the _@export_ command if you want the function to be exported (i.e. visable) to your end users. [Hadley](http://had.co.nz/) has a pretty comprehensive [guide](http://adv-r.had.co.nz/Documenting-functions.html) where you can 
 learn a lot more about how _roxygen_ works. Your function follows immediately after the comments. 
 
 When you have saved functions with _roxygen2_ style comments you can create the .Rd files (the man files themselves) 
@@ -237,7 +237,7 @@ document("packagename")
 ```
 on the package folder. The package folder must be in the current working directory where you are editing. 
 
-Please read Hadley's [guide](http://adv-r.had.co.nz/Documenting-functions.html) in its entirety to understand how to document packages and in particular, how _roxygen2_ 
+Please read [Hadley](http://had.co.nz/)'s [guide](http://adv-r.had.co.nz/Documenting-functions.html) in its entirety to understand how to document packages and in particular, how _roxygen2_ 
 deals with collation and namespaces. 
 
 
@@ -258,7 +258,7 @@ create a vignette. For our purposes, a vignette is a tutorial that includes the 
   
 We will write Vignettes in [knitr](http://yihui.name/knitr/). We will put a file called vignette.Rmd in
 the directory packagename/inst/doc/. [Here](http://yihui.name/knitr/demo/vignette/) is some information
-from Yihui about building vignettes in knitr. You should use the [BiocStyle](http://www.bioconductor.org/packages/devel/bioc/html/BiocStyle.html)
+from [Yihui](http://yihui.name/) about building vignettes in knitr. You should use the [BiocStyle](http://www.bioconductor.org/packages/devel/bioc/html/BiocStyle.html)
 package to style your vignette. This means you will need to add this code to the preamble of your markdown
 file:
 
@@ -269,7 +269,7 @@ BiocStyle::latex()
 ```
 
 See the [BiocStyle vignette](http://www.bioconductor.org/packages/devel/bioc/vignettes/BiocStyle/inst/doc/LatexStyle.pdf) for
-commands that you can use when creating your vignette (e.g. _\Biocpkg{IRanges}_ for referencing a Bioconductor package).
+commands that you can use when creating your vignette (e.g. _\Biocpkg{IRanges}_ for referencing a [Bioconductor](http://www.bioconductor.org/) package).
 
 
 
@@ -282,7 +282,7 @@ will be listed as an author.
 Who should be a maintainer
 ---------------------
 
-You will be a maintainer and Jeff will be a maintainer. If you can sucker one of your fellow students into maintaining the pakcage
+You will be a maintainer and [Jeff](http://www.biostat.jhsph.edu/~jleek/) will be a maintainer. If you can sucker one of your fellow students into maintaining the pakcage
 as well, you can list them, but they must make the same commitment to 5 years of support. 
 
 [Good writers borrow from other authors, great authors steal outright](http://www.brainyquote.com/quotes/quotes/a/aaronsorki405048.html)<sup>4</sup>
@@ -298,13 +298,13 @@ He built [slidify](https://github.com/ramnathv/slidify) on top of knitr and [rCh
 on top of existing D3 libraries. They allowed him to create awesome software without having to solve every single problem.
 
 Before writing general purpose functions (say for regression or for calculating p-values or for making plots) make sure
-you search for functions that already exist (or ask Jeff/your fellow students if you aren't sure).
+you search for functions that already exist (or ask [Jeff](http://www.biostat.jhsph.edu/~jleek/)/your fellow students if you aren't sure).
 
 An important and balancing principle is that you should try to keep the number of dependencies for your package as 
 small as possible. You should also try to use packages that you trust will be maintained. Some ways to tell if a package
 is "trustworthy" are to check the number of downloads/users (higher is better), check to see if the package is being
-actively updated (on Github/Bioconductor/CRAN) and there is a history of updates, and check to see if the authors of the
-packages routinely maintain important packages (like Hadley, Yihui, Ramnath, Martin Morgan, etc.). Keep in mind your
+actively updated (on [GitHub](https://github.com/)/[Bioconductor](http://www.bioconductor.org/)/[CRAN](http://cran.r-project.org/)) and there is a history of updates, and check to see if the authors of the
+packages routinely maintain important packages (like [Hadley](http://had.co.nz/), [Yihui](http://yihui.name/), [Ramnath](https://github.com/ramnathv), [Martin Morgan](http://www.fhcrc.org/en/util/directory.html?q=martin+morgan&short=true#peopleresults), etc.). Keep in mind your
 commitment (see below) when making decisions about whose functions to use. 
 
 Simple >>>> Complex
@@ -326,9 +326,9 @@ they present a potentially major difficulty in maintainence and should be placed
 Unit tests
 ---------------------
 
-For now, unit tests aren't a required component of packages in the Leek group. On the other hand, they can be hugely useful,
+For now, unit tests aren't a required component of packages in the [Leek group](http://www.biostat.jhsph.edu/~jleek/). On the other hand, they can be hugely useful,
 especially as you maintain packages that you haven't worked on in a while. My suggestion is to use the [testthat](http://adv-r.had.co.nz/Testing.html)
-framework to build tests before you leave (or Bioconductor's [unit testing](http://www.bioconductor.org/developers/unitTesting-guidelines/))
+framework to build tests before you leave (or [Bioconductor](http://www.bioconductor.org/)'s [unit testing](http://www.bioconductor.org/developers/unitTesting-guidelines/))
 A couple of suggestions:
 
 * Organize your tests into contexts (groups of tests) and name them.
@@ -348,22 +348,22 @@ of dummy proofing is writing thorough documentation and vignettes (see the above
 focus on dummy proofing is through documentation - and when you see weird cases, add them to the documents. 
 
 
-Releasing to Bioconductor
+Releasing to [Bioconductor](http://www.bioconductor.org/)
 ---------------------
 
 Once you have developed a package you should use it yourself for a couple of weeks. Then you should 
 have at least one other student use it without you giving them any instructions other than telling them
-where some data are - that way you can test your documentation. Finally, you should meet with Jeff and 
-get ready to release it to Bioconductor. 
+where some data are - that way you can test your documentation. Finally, you should meet with [Jeff](http://www.biostat.jhsph.edu/~jleek/) and 
+get ready to release it to [Bioconductor](http://www.bioconductor.org/). 
 
-The steps in releasing to Bioconductor are:
+The steps in releasing to [Bioconductor](http://www.bioconductor.org/) are:
 
-1. Follow Bioconductor's [checklist](http://www.bioconductor.org/developers/package-submission/) to confirm
+1. Follow [Bioconductor](http://www.bioconductor.org/)'s [checklist](http://www.bioconductor.org/developers/package-submission/) to confirm
 the package is ready to upload
-2. Update the version number and push to Github. In the commit comments, state it is the version being 
-pushed to Bioconductor.
+2. Update the version number and push to [GitHub](https://github.com/). In the commit comments, state it is the version being 
+pushed to [Bioconductor](http://www.bioconductor.org/).
 3. Send an email as described in the checklist stating that you want an account and want to submit a package. 
-4. Submit the package to Bioconductor
+4. Submit the package to [Bioconductor](http://www.bioconductor.org/).
 5. Update the version number (bump y and z) to the next odd number for z. In the commit comments, state
 that this is the new devel version. 
 
@@ -380,7 +380,7 @@ Hopefully, though, it is still very important to the users who are applying that
 problems in molecular biology and medicine. It is unfair to those users if your software breaks down and can't be
 installed/used. 
 
-So if you undertake a research project in the Leek group which involves software development (pretty much all of them will)
+So if you undertake a research project in the [Leek group](http://www.biostat.jhsph.edu/~jleek/) which involves software development (pretty much all of them will)
 you commit to maintaining that software for at least 5 years after you graduate. Of course, I can't hold you to that
 like a contract or anything, but think of it as an honor thing. 
 
@@ -391,19 +391,19 @@ will be as low as possible. Specifically:
 * Make the dependencies as minimal as possible. If your dependencies update, you'll have to update the software
 * Only create functions that are absolutely necessary for the package. It is hard to delete functions from a package
 after it is released without messing with users and adds to the maintainence headache each time you keep one in. 
-* Make the vignette really clear and add a FAQ with questions you get from users while you are still in the Leek group. 
+* Make the vignette really clear and add a FAQ with questions you get from users while you are still in the [Leek group](http://www.biostat.jhsph.edu/~jleek/). 
 * Add comments to your code/unit tests so that when something breaks you can find/fix the problem quickly. 
 
 
 About the author
 --------------------
 
-The first version of this tutorial was written by Jeff Leek ([@simplystats](https://twitter.com/simplystats)). Hopefully
+The first version of this tutorial was written by [Jeff Leek](http://www.biostat.jhsph.edu/~jleek/)  ([@simplystats](https://twitter.com/simplystats)). Hopefully
 he can sucker his students into contributing since they are much, much better R programmers than he is. 
 
 ### Footnotes
 
-1. These design requirements are subject to update and may not reflect Leek group software created before 9/18/2013 
+1. These design requirements are subject to update and may not reflect [Leek group](http://www.biostat.jhsph.edu/~jleek/) software created before 9/18/2013 
 (or ever really, remember the perfect is the enemy of the very good).
 2. Except for utility functions, more on this later. 
 3. Ask me about the time they named one of my packages "succs"
