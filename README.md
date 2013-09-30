@@ -1,4 +1,4 @@
-Developing R packages
+Developing `R` packages
 ------------------
 
 As a modern statistician, one of the most fundamental contributions you can make is to create and distribute
@@ -8,7 +8,7 @@ software, [that paper doesn't exist](http://simplystatistics.org/2013/01/23/stat
 The purposes of this guide are:
 
 * To explain why writing software is a critical component of being a statistician.
-* To give you an introduction into the process/timing of creating an R package.
+* To give you an introduction into the process/timing of creating an `R` package.
 * To help you figure out how to distribute/publicize your software.
 * To remind you that ["the perfect is the enemy of the very good"](http://en.wikipedia.org/wiki/Perfect_is_the_enemy_of_good).
 * To try to make sure [Leek group](http://www.biostat.jhsph.edu/~jleek/) software has a consistent design.<sup>1</sup>
@@ -21,7 +21,7 @@ Stay tuned for the [Leek group](http://www.biostat.jhsph.edu/~jleek/) approach t
 
 
 
-Why develop an R package?
+Why develop an `R` package?
 --------------------
 
 Cause you know, you do what [your advisor](http://www.biostat.jhsph.edu/~jleek/) says and stuff.
@@ -38,12 +38,12 @@ other places) that I use. It is the number one way to get your name out there in
 3. If you write a software package you need for yourself, you will save yourself tons of time in sourcing scripts,
 and remembering where all your code/functions are. 
 
-Most importantly might be that creating an R package is _building something_. It is something you can point to and
+Most importantly might be that creating an `R` package is _building something_. It is something you can point to and
 say, "I made that". Leaving aside all the tangible benefits to your career, the profession, etc. it is maybe the
 most gratifying feeling you get when working on research. 
 
 
-When to start writing an R package
+When to start writing an `R` package
 ---------------------
 
 As soon as you have 2 functions. 
@@ -51,16 +51,16 @@ As soon as you have 2 functions.
 Why 2? After you have more than one function it starts to get easy to lose track of
 what your functions do, it starts to be tempting to name your functions _foo_ or _tempfunction_ or some other such 
 nonsense. You are also tempted to put all of the functions in one file and just source it. That was what I did
-with my first project, which ended up being an epically comical set of about 3,000 lines of code in one R file. 
+with my first project, which ended up being an epically comical set of about 3,000 lines of code in one `R` file. 
 Ask [my advisor](http://www.genomine.org/) about it sometime, he probably is still laughing about it. 
 
 
 What you need
 --------------------
 
-To start writing an R package you need:
+To start writing an `R` package you need:
 
-* R - I mean, unless you are a wizard.
+* `R` - I mean, unless you are a wizard.
 * Your functions, each written in a separate file<sup>2</sup>.
 * At minimum the following packages installed: _devtools, roxygen2, knitr_.
 * If you are going to use C code: _Rcpp_
@@ -72,7 +72,7 @@ To start writing an R package you need:
 Naming your package
 ---------------------
 
-The first step in creating your R package is to give it a name. Hadley [has some ideas](http://adv-r.had.co.nz/Package-basics.html)
+The first step in creating your `R` package is to give it a name. Hadley [has some ideas](http://adv-r.had.co.nz/Package-basics.html)
 about it. Here are our rules:
 
 * Make it googleable - check by googling it.
@@ -109,7 +109,7 @@ you should increase y.
 Creating your package
 ---------------------
 
-Run this code from R to create your package. It will create a directory called _packagename_ and put some stuff in it 
+Run this code from `R` to create your package. It will create a directory called _packagename_ and put some stuff in it 
 (more on this stuff in a second). 
 
 ```S
@@ -141,13 +141,13 @@ steps to getting your package on [GitHub](https://github.com/):
 
 
 
-The parts of an R package
+The parts of an `R` package
 --------------------
 
-### R functions
+### `R` functions
 
-The R functions you have written go in the R/ directory in the _packagename_ folder. Each of your R functions
-should go in a separate file with a .R extension. We are going to use capital R for the extension of the files. 
+The `R` functions you have written go in the R/ directory in the _packagename_ folder. Each of your `R` functions
+should go in a separate file with a .R extension. We are going to use capital `R` for the extension of the files. 
 
 Why? Don't ask questions. 
 
@@ -170,8 +170,8 @@ some idea about what kind of data your software should be used on, what the inpu
 _Jeff Leek <jleek@jhsph.edu>_ and should be comma separated. 
 * A maintainer field should be added with maintainers listed as comma separated files. You are the maintainer of your
 package when you create it. See the section below on after you leave the [Leek group](http://www.biostat.jhsph.edu/~jleek/) for more information. 
-* The dependencies (other R packages your software uses/depends on) should be listed in a comma separated list after
-the R version. One of the dependencies should be the _kntir_ package for the vignette. 
+* The dependencies (other `R` packages your software uses/depends on) should be listed in a comma separated list after
+the `R` version. One of the dependencies should be the _kntir_ package for the vignette. 
 * The License is required to be open source. I like GPL-2 or GPL-3 or the creative commons licences like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/)
 [this](http://www.tldrlegal.com/) is a good website for learning more about software licenses. 
 * You should add a line _VignetteBuilder: knitr_ 
@@ -399,7 +399,7 @@ About the author
 --------------------
 
 The first version of this tutorial was written by [Jeff Leek](http://www.biostat.jhsph.edu/~jleek/)  ([@simplystats](https://twitter.com/simplystats)). Hopefully
-he can sucker his students into contributing since they are much, much better R programmers than he is. 
+he can sucker his students into contributing since they are much, much better `R` programmers than he is. 
 
 ### Footnotes
 
