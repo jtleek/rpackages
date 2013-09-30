@@ -62,12 +62,12 @@ To start writing an `R` package you need:
 
 * `R` - I mean, unless you are a wizard.
 * Your functions, each written in a separate file<sup>2</sup>.
-* At minimum the following packages installed: _devtools, roxygen2, knitr_.
-* If you are going to use C code: _Rcpp_
-* [Install git](https://help.github.com/articles/set-up-git)
+* At minimum the following packages installed: [devtools](http://cran.r-project.org/web/packages/devtools/index.html), [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) (suggested by [devtools](http://cran.r-project.org/web/packages/devtools/index.html)), [knitr](http://cran.r-project.org/web/packages/knitr/index.html).
+* If you are going to use C code: [Rcpp](http://cran.r-project.org/web/packages/Rcpp/index.html)
+* [Install git](https://help.github.com/articles/set-up-git).
 * A [github account](https://github.com/signup/free). 
-* To read [Hadley's intro](http://adv-r.had.co.nz/Package-basics.html)
-* To read [Karl's Github tutorial](http://kbroman.github.io/github_tutorial/)
+* To read [Hadley's intro](http://adv-r.had.co.nz/Package-basics.html).
+* To read [Karl's Github tutorial](http://kbroman.github.io/github_tutorial/).
 
 Naming your package
 ---------------------
@@ -79,7 +79,7 @@ about it. Here are our rules:
 * Make sure there is no [Bioconductor](http://www.bioconductor.org/)/[CRAN](http://cran.r-project.org/) package with the same name. 
 * No underscores, dashes or any other special characters/numbers
 * Make it all lower case - people hate having to figure out caps in names of packages.
-* Make it memorable and if you want serious people to use it - but don't be too cute. 
+* Make it memorable; if you want serious people to use it don't be too cute. 
 * Make it as short as you possibly can while staying googleable.
 * Never, under any circumstances, let Rafa or Hector name your package.<sup>3</sup> 
 
@@ -90,20 +90,20 @@ Versioning your package
 Almost all of our packages will eventually go on [Bioconductor](http://www.bioconductor.org/). So we are going to use the [versioning
 scheme](http://www.bioconductor.org/developers/version-numbering/) that is compatible with that platform (with some helpful suggestions from [Kasper H.](http://www.biostat.jhsph.edu/~khansen/)).
 
-The format of the version number will always be x.y.z. When you start any new package the version number should be
-0.1.0. Every time you make any change public (e.g., push to [GitHub](https://github.com/)) you should increase z in the version number. If 
-you are making local commits but not making them public to other people you don't need to increase z. You should 
-stay in version 0.1.z basically up until you are ready to submit to [Bioconductor](http://www.bioconductor.org/) (or [CRAN](http://cran.r-project.org/)) for release. 
+The format of the version number will always be `x.y.z`. When you start any new package the version number should be
+`0.1.0`. Every time you make any change public (e.g., push to [GitHub](https://github.com/)) you should increase `z` in the version number. If 
+you are making local commits but not making them public to other people you don't need to increase `z`. You should 
+stay in version `0.1.z` basically up until you are ready to submit to [Bioconductor](http://www.bioconductor.org/) (or [CRAN](http://cran.r-project.org/)) for release. 
 
-Before release you can increase y if you perform a major redesign of how the functions are organized or are used. You
-should never increase x before release. 
+Before release you can increase `y` if you perform a major redesign of how the functions are organized or are used. You
+should never increase `x` before release. 
 
-The first time you submit the package to [Bioconductor](http://www.bioconductor.org/) you should submit it as version number 0.99.z. That way on the next 
-release of [Bioconductor](http://www.bioconductor.org/) it will get bumped to 1.0.0. The next devel version will get bumped to 1.1.0 on [Bioconductor](http://www.bioconductor.org/).
-Immediately after releasing, if you plan to keep working on the project, you should bump your version on [GitHub](https://github.com/) to 1.1.0.
+The first time you submit the package to [Bioconductor](http://www.bioconductor.org/) you should submit it as version number `0.99.z`. That way on the next 
+release of [Bioconductor](http://www.bioconductor.org/) it will get bumped to `1.0.0`. The next devel version will get bumped to `1.1.0` on [Bioconductor](http://www.bioconductor.org/).
+Immediately after releasing, if you plan to keep working on the project, you should bump your version on [GitHub](https://github.com/) to `1.1.0`.
 
-Thereafter, again you should keep increasing z every time you make a public change. If you do a major reorganization
-you should increase y. 
+Thereafter, again you should keep increasing `z` every time you make a public change. If you do a major reorganization
+you should increase `y`. 
 
 
 Creating your package
@@ -113,6 +113,9 @@ Run this code from `R` to create your package. It will create a directory called
 (more on this stuff in a second). 
 
 ```S
+## Setup
+install.packages(c("devtools", "roxygen2", "knitr"))
+
 ## Load the libraries
 library(devtools)
 library(roxygen2)
@@ -135,10 +138,21 @@ steps to getting your package on [GitHub](https://github.com/):
 2. In the _packagename_ directory on your local machine, run the commands: _git init_
 3. Then run: _git remote add origin git@github.com:yourusername/packagename.git_
 4. Create a file in the _packagename_ directory called README.md
-5. Run the command: _git add ._
+5. Run the command: _git add *_
 6. Run the command: _git commit -m 'initial commit'_
 7. Run the command: _git push -u origin master_
 
+In summary:
+
+```bash
+mkdir packagename
+cd packagename
+git init
+git remote add origin git@github.com:yourusername/packagename.git
+git add *
+git commit -m 'initial commit'
+git push -u origin master
+```
 
 
 The parts of an `R` package
@@ -146,20 +160,20 @@ The parts of an `R` package
 
 ### `R` functions
 
-The `R` functions you have written go in the R/ directory in the _packagename_ folder. Each of your `R` functions
-should go in a separate file with a .R extension. We are going to use capital `R` for the extension of the files. 
+The `R` functions you have written go in the __R/__ directory in the _packagename_ folder. Each of your `R` functions
+should go in a separate file with a `.R` extension. We are going to use capital `R` for the extension of the files. 
 
 Why? Don't ask questions. 
 
-If you define a new class call the .R file _classname-class.R_. For example, if you are creating the leek class of objects
+If you define a new class call the `.R` file _classname-class.R_. For example, if you are creating the leek class of objects
 it would be called _leek-class.R_. If you are defining a new method for the class it should
-be named _newclass-methodname-method.R_. For example, a plotting method for the leek class would go in a .R file
+be named _newclass-methodname-method.R_. For example, a plotting method for the leek class would go in a `.R` file
 called _leek-plot-method.R_. 
 
 
-### DESCRIPTION 
+### `DESCRIPTION `
 
-The DESCRIPTION file is a plain text file that gets generated with the _create_ command. 
+The `DESCRIPTION` file is a plain text file that gets generated with the _devtools::create_ command. 
 
 * The package name should go after the colon on the first line. 
 * The package title should be a one sentence description of what the package actually does. 
@@ -171,11 +185,31 @@ _Jeff Leek <jleek@jhsph.edu>_ and should be comma separated.
 * A maintainer field should be added with maintainers listed as comma separated files. You are the maintainer of your
 package when you create it. See the section below on after you leave the [Leek group](http://www.biostat.jhsph.edu/~jleek/) for more information. 
 * The dependencies (other `R` packages your software uses/depends on) should be listed in a comma separated list after
-the `R` version. One of the dependencies should be the _kntir_ package for the vignette. 
-* The License is required to be open source. I like GPL-2 or GPL-3 or the creative commons licences like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/)
-[this](http://www.tldrlegal.com/) is a good website for learning more about software licenses. 
+the `R` version. One of the dependencies should be the [knitr](http://cran.r-project.org/web/packages/knitr/index.html) package for the vignette. 
+* The License is required to be open source. I like GPL-2 or GPL-3 or the creative commons licenses like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/). 
+[This](http://www.tldrlegal.com/) is a good website for learning more about software licenses. 
 * You should add a line _VignetteBuilder: knitr_ 
 * You should add a line _Suggests: knitr, BiocStyle_ 
+
+For example:
+
+```
+Package: packagename
+Type: Package
+Title: A sentence
+Version: 0.1.0
+Date: 2013-09-27
+Authors@R: c(person("Jeff", "Leek", role = c("aut", "cre", "ths"),
+    email = "jleek@jhsph.edu"))
+Depends:
+    R(>= 3.0.1),
+	knitr
+Suggests:
+    knitr,
+	BiocStyle
+Description: A couple sentences that expand the title
+License: Artistic-2.0
+```
 
 Documentation
 ---------------------
@@ -184,7 +218,7 @@ This is how I feel about the relative importance of various components of statis
 
 ![documentation](https://raw.github.com/jtleek/rpackages/master/documentation.png)
 
-Ideally your software is easy to understand and just works. But this isn't Apple and you don't have a legion
+Ideally your software is easy to understand and just works. But this isn't [Apple](http://www.apple.com/) and you don't have a legion
 of test users to try it out for you. So more likely than not, at least the first several versions of your 
 software will be at least a little hard to use. The first versions will also probably be slower than you would
 like them to be. 
@@ -192,16 +226,16 @@ like them to be.
 But if your software solves a real problem (it should!) and is well documented (it will be!) then people will
 use it and you will have a positive impact on the world. 
 
-Documentation has two main components. The first component is help files, which go into the man folder. The second 
-component is vignettes which will go in a folder called inst/doc/ which you will have to create. I'll tackle 
+Documentation has two main components. The first component is help files, which go into the __man/__ folder. The second 
+component is vignettes which will go in a folder called __inst/doc/__ which you will have to create. I'll tackle 
 each of these separately. 
 
 ### Help (man) files
 
 
 These files document each of the functions/methods/classes you will expose to your users. The good news is that
-you don't have to write these files yoursef. You will use the _roxygen2_ package to create the man files. To use
-_roxygen2_ you will need to document your functions in the .R files with comments formated in a specific way. Right
+you don't have to write these files yourself. You will use the [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) package to create the man files. To use
+[roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) you will need to document your functions in the `.R` files with comments formatted in a specific way. Right
 before your functions you should have a set of comments that are denoted by the symbol _#'_. They are structured in 
 the following way:
 
@@ -212,8 +246,8 @@ the following way:
 #' it works. It may be a paragraph that should not be separated
 #' by any spaces. 
 #'
-#' @param inputParameter2 A description of the input paramater parameterName1
-#' @param inputParameter1 A description of the input parameter parameterName2
+#' @param inputParameter1 A description of the input parameter \code{inputParameter1}
+#' @param inputParameter2 A description of the input parameter \code{inputParameter2}
 #'
 #' @return output A description of the object the function outputs 
 #'
@@ -224,12 +258,12 @@ the following way:
 #' @examples
 #' R code here showing how your function works
 
-myfunction <- function(...){}
+myfunction <- function(inputParameter1, inputParameter2){}
 ```
-You include the _@export_ command if you want the function to be exported (i.e. visable) to your end users. [Hadley](http://had.co.nz/) has a pretty comprehensive [guide](http://adv-r.had.co.nz/Documenting-functions.html) where you can 
+You include the _@export_ command if you want the function to be exported (i.e. visible) to your end users. [Hadley](http://had.co.nz/) has a pretty comprehensive [guide](http://adv-r.had.co.nz/Documenting-functions.html) where you can 
 learn a lot more about how _roxygen_ works. Your function follows immediately after the comments. 
 
-When you have saved functions with _roxygen2_ style comments you can create the .Rd files (the man files themselves) 
+When you have saved functions with [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) style comments you can create the `.Rd` files (the man files themselves) 
 by running:
 
 ```S
@@ -237,7 +271,7 @@ document("packagename")
 ```
 on the package folder. The package folder must be in the current working directory where you are editing. 
 
-Please read [Hadley](http://had.co.nz/)'s [guide](http://adv-r.had.co.nz/Documenting-functions.html) in its entirety to understand how to document packages and in particular, how _roxygen2_ 
+Please read [Hadley](http://had.co.nz/)'s [guide](http://adv-r.had.co.nz/Documenting-functions.html) in its entirety to understand how to document packages and in particular, how [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) 
 deals with collation and namespaces. 
 
 
@@ -254,11 +288,11 @@ create a vignette. For our purposes, a vignette is a tutorial that includes the 
   * A small, real data set
   * An explanation of the key functions
   * An application of these functions to the data
-  * A description of the ouput and how it can be used
+  * A description of the output and how it can be used
   
-We will write Vignettes in [knitr](http://yihui.name/knitr/). We will put a file called vignette.Rmd in
-the directory packagename/inst/doc/. [Here](http://yihui.name/knitr/demo/vignette/) is some information
-from [Yihui](http://yihui.name/) about building vignettes in knitr. You should use the [BiocStyle](http://www.bioconductor.org/packages/devel/bioc/html/BiocStyle.html)
+We will write Vignettes in [knitr](http://yihui.name/knitr/). We will put a file called `vignette.Rmd` in
+the directory __packagename/inst/doc/__. [Here](http://yihui.name/knitr/demo/vignette/) is some information
+from [Yihui](http://yihui.name/) about building vignettes in [knitr](http://cran.r-project.org/web/packages/knitr/index.html). You should use the [BiocStyle](http://www.bioconductor.org/packages/devel/bioc/html/BiocStyle.html)
 package to style your vignette. This means you will need to add this code to the preamble of your markdown
 file:
 
@@ -282,7 +316,7 @@ will be listed as an author.
 Who should be a maintainer
 ---------------------
 
-You will be a maintainer and [Jeff](http://www.biostat.jhsph.edu/~jleek/) will be a maintainer. If you can sucker one of your fellow students into maintaining the pakcage
+__You__ will be a maintainer and [Jeff](http://www.biostat.jhsph.edu/~jleek/) will be a maintainer. If you can sucker one of your fellow students into maintaining the package
 as well, you can list them, but they must make the same commitment to 5 years of support. 
 
 [Good writers borrow from other authors, great authors steal outright](http://www.brainyquote.com/quotes/quotes/a/aaronsorki405048.html)<sup>4</sup>
@@ -294,8 +328,8 @@ for these qualities in academia.
 
 But when writing software it is very, very important not to reinvent every single wheel you see. One person who 
 is awesome at blending existing tools and exponentially building value is [Ramnath Vaidyanathan](https://github.com/ramnathv).
-He built [slidify](https://github.com/ramnathv/slidify) on top of knitr and [rCharts](https://github.com/ramnathv/rCharts) 
-on top of existing D3 libraries. They allowed him to create awesome software without having to solve every single problem.
+He built [slidify](https://github.com/ramnathv/slidify) on top of [knitr](http://cran.r-project.org/web/packages/knitr/index.html) and [rCharts](https://github.com/ramnathv/rCharts) 
+on top of existing [D3](http://d3js.org/) libraries. They allowed him to create awesome software without having to solve every single problem.
 
 Before writing general purpose functions (say for regression or for calculating p-values or for making plots) make sure
 you search for functions that already exist (or ask [Jeff](http://www.biostat.jhsph.edu/~jleek/)/your fellow students if you aren't sure).
@@ -315,12 +349,12 @@ actually testing those features out. The problem is that each new feature you cr
 increase the number of dependencies and the amount of code you have to maintain. In general, the principle should be
 to create exactly enough functions that the users can install your package, perform your analysis, and return the results.
 
-Specifically, be wary of things like GUIs or Shiny apps. Given the heavy emphasis placed on reproducibility these days,
+Specifically, be wary of things like GUIs or [Shiny](http://www.rstudio.com/shiny/) apps. Given the heavy emphasis placed on reproducibility these days,
 it is rarely the case that real/important analyses will be performed in a point and click format. 
 
 If you are way into creating products that point-and-click users will be interested in I'm very happy to support you in 
 that, since I think those things are cool, probably the future, and can certainly raise the interest in your work. But
-they present a potentially major difficulty in maintainence and should be placed in separate packages on your own repository. 
+they present a potentially major difficulty in maintainence and should be placed in separate packages on your own account. 
 
 
 Unit tests
@@ -364,7 +398,7 @@ the package is ready to upload
 pushed to [Bioconductor](http://www.bioconductor.org/).
 3. Send an email as described in the checklist stating that you want an account and want to submit a package. 
 4. Submit the package to [Bioconductor](http://www.bioconductor.org/).
-5. Update the version number (bump y and z) to the next odd number for z. In the commit comments, state
+5. Update the version number (bump `y` and `z`) to the next odd number for `z`. In the commit comments, state
 that this is the new devel version. 
 
 
@@ -388,7 +422,7 @@ like a contract or anything, but think of it as an honor thing.
 own awesome company and appeared on Techcrunch. So it is worth thinking about ways you can ensure that the maintainence
 will be as low as possible. Specifically:
 
-* Make the dependencies as minimal as possible. If your dependencies update, you'll have to update the software
+* Make the dependencies as minimal as possible. If your dependencies update, you'll have to update the software.
 * Only create functions that are absolutely necessary for the package. It is hard to delete functions from a package
 after it is released without messing with users and adds to the maintainence headache each time you keep one in. 
 * Make the vignette really clear and add a FAQ with questions you get from users while you are still in the [Leek group](http://www.biostat.jhsph.edu/~jleek/). 
@@ -406,7 +440,7 @@ he can sucker his students into contributing since they are much, much better `R
 1. These design requirements are subject to update and may not reflect [Leek group](http://www.biostat.jhsph.edu/~jleek/) software created before 9/18/2013 
 (or ever really, remember the perfect is the enemy of the very good).
 2. Except for utility functions, more on this later. 
-3. Ask me about the time they named one of my packages "succs"
+3. Ask me about the time they named one of my packages "succs".
 4. With proper attribution, of course.
 
 
