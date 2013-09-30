@@ -395,7 +395,7 @@ get ready to release it to [Bioconductor](http://www.bioconductor.org/).
 
 The steps in releasing to [Bioconductor](http://www.bioconductor.org/) are:
 
-1. Follow [Bioconductor](http://www.bioconductor.org/)'s [checklist](http://www.bioconductor.org/developers/package-submission/) to confirm
+* Follow [Bioconductor](http://www.bioconductor.org/)'s [checklist](http://www.bioconductor.org/developers/package-submission/) to confirm
 the package is ready to upload.
 	* In particular, check that your package passes R CMD check in less than 5 minutes. You can use
 	
@@ -404,11 +404,12 @@ library("devtools")
 check_doc("packagename") ## Only for checking the documentation
 system.time(check("packagename")) ## R CMD check
 ```
-2. Update the version number and push to [GitHub](https://github.com/). In the commit comments, state it is the version being 
+
+* Update the version number and push to [GitHub](https://github.com/). In the commit comments, state it is the version being 
 pushed to [Bioconductor](http://www.bioconductor.org/).
-3. Send an email as described in the checklist stating that you want an account and want to submit a package. 
-4. Submit the package to [Bioconductor](http://www.bioconductor.org/).
-5. Update the version number (bump `y` and `z`) to the next odd number for `z`. In the commit comments, state
+* Send an email as described in the checklist stating that you want an account and want to submit a package. 
+* Submit the package to [Bioconductor](http://www.bioconductor.org/).
+* Update the version number (bump `y` and `z`) to the next odd number for `z`. In the commit comments, state
 that this is the new devel version. 
 
 
