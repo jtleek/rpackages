@@ -175,6 +175,7 @@ the R version. One of the dependencies should be the _kntir_ package for the vig
 * The License is required to be open source. I like GPL-2 or GPL-3 or the creative commons licences like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/)
 [this](http://www.tldrlegal.com/) is a good website for learning more about software licenses. 
 * You should add a line _VignetteBuilder: knitr_ 
+* You should add a line _Suggests: knitr, BiocStyle_ 
 
 Documentation
 ---------------------
@@ -255,15 +256,34 @@ create a vignette. For our purposes, a vignette is a tutorial that includes the 
   * An application of these functions to the data
   * A description of the ouput and how it can be used
   
-The vignette is placed in a Sweave file (with extension .Rnw) in the directory packagename/inst/doc/. The 
+We will write Vignettes in [knitr](http://yihui.name/knitr/). We will put a file called vignette.Rmd in
+the directory packagename/inst/doc/. [Here](http://yihui.name/knitr/demo/vignette/) is some information
+from Yihui about building vignettes in knitr. You should use the [BiocStyle](http://www.bioconductor.org/packages/devel/bioc/html/BiocStyle.html)
+package to style your vignette. This means you will need to add this code to the preamble of your markdown
+file:
 
+```S
+<<style, eval=TRUE, echo=FALSE, results='asis'>>=
+BiocStyle::latex()
+@
+```
+
+See the [BiocStyle vignette](http://www.bioconductor.org/packages/devel/bioc/vignettes/BiocStyle/inst/doc/LatexStyle.pdf) for
+commands that you can use when creating your vignette (e.g. _\Biocpkg{IRanges}_ for referencing a Bioconductor package).
 
 
 
 Who should be an author?
 ---------------------
 
+For our purposes anyone who wrote a function exposed to users in the package (a function that has an @export in the documentation)
+will be listed as an author. 
 
+Who should be a maintainer
+---------------------
+
+You will be a maintainer and Jeff will be a maintainer. If you can sucker one of your fellow students into maintaining the pakcage
+as well, you can list them, but they must make the same commitment to 5 years of support. 
 
 [Good writers borrow from other authors, great authors steal outright](http://www.brainyquote.com/quotes/quotes/a/aaronsorki405048.html)<sup>4</sup>
 ---------------------
@@ -319,8 +339,33 @@ A couple of suggestions:
 Dummy proofing
 ---------------------
 
-No matter how careful you are
+Hopefully your package will have a ton of users. Inevitably, they will try to use the software for purposes you did not
+intend. Some of these will be happy things (software you wrote for microarrays being used in sequencing). Sometimes
+they will be unhappy - people using it completely out of context and getting wonky answers. 
 
+You should do some minimal checking of arguments and have your functions "fail gracefully". But a major component
+of dummy proofing is writing thorough documentation and vignettes (see the above sections). The major way we will
+focus on dummy proofing is through documentation - and when you see weird cases, add them to the documents. 
+
+
+Releasing to Bioconductor
+---------------------
+
+Once you have developed a package you should use it yourself for a couple of weeks. Then you should 
+have at least one other student use it without you giving them any instructions other than telling them
+where some data are - that way you can test your documentation. Finally, you should meet with Jeff and 
+get ready to release it to Bioconductor. 
+
+The steps in releasing to Bioconductor are:
+
+1. Follow Bioconductor's [checklist](http://www.bioconductor.org/developers/package-submission/) to confirm
+the package is ready to upload
+2. Update the version number and push to Github. In the commit comments, state it is the version being 
+pushed to Bioconductor.
+3. Send an email as described in the checklist stating that you want an account and want to submit a package. 
+4. Submit the package to Bioconductor
+5. Update the version number (bump y and z) to the next odd number for z. In the commit comments, state
+that this is the new devel version. 
 
 
 Your commitment
@@ -348,7 +393,6 @@ will be as low as possible. Specifically:
 after it is released without messing with users and adds to the maintainence headache each time you keep one in. 
 * Make the vignette really clear and add a FAQ with questions you get from users while you are still in the Leek group. 
 * Add comments to your code/unit tests so that when something breaks you can find/fix the problem quickly. 
-
 
 
 About the author
