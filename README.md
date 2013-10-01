@@ -216,6 +216,20 @@ Description: A couple sentences that expand the title
 License: Artistic-2.0
 ```
 
+Coding style requirements
+---------------------
+
+I will try to keep the stylistic requirements minimal because they would likely drive you nuts. For now there are:
+
+
+1. Your indent should be 4 spaces on every line
+2. Each line can be no more than 80 columns
+
+
+You can set these as defaults (say in Sublime or Rstudio) then you don't have to worry about them anymore. If you find 
+lines going longer than 80 columns, you will need to write the lines into fucntions, etc. 
+
+
 Documentation
 ---------------------
 
