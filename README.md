@@ -370,7 +370,8 @@ Simple >>>> Complex
 A major temptation for everyone creating code is to generate a bunch of features they think that users will want without
 actually testing those features out. The problem is that each new feature you create in your package will monotonically
 increase the number of dependencies and the amount of code you have to maintain. In general, the principle should be
-to create exactly enough functions that the users can install your package, perform your analysis, and return the results.
+to create exactly enough functions that the users can install your package, perform your analysis, and return the results,
+__with no extraneous functionality__.
 
 Specifically, be wary of things like GUIs or [Shiny](http://www.rstudio.com/shiny/) apps. Given the heavy emphasis placed on reproducibility these days,
 it is rarely the case that real/important analyses will be performed in a point and click format. 
@@ -383,14 +384,70 @@ they present a potentially major difficulty in maintainence and should be placed
 Unit tests
 ---------------------
 
-For now, unit tests aren't a required component of packages in the [Leek group](http://www.biostat.jhsph.edu/~jleek/). On the other hand, they can be hugely useful,
-especially as you maintain packages that you haven't worked on in a while. My suggestion is to use the [testthat](http://adv-r.had.co.nz/Testing.html)
-framework to build tests before you leave (or [Bioconductor](http://www.bioconductor.org/)'s [unit testing](http://www.bioconductor.org/developers/unitTesting-guidelines/))
-A couple of suggestions:
+Unit tests are an important for the following reasons:
+
+* They make it easier for you to find bugs in your code
+* They make it easier for you to figure out if your code works together
+* __They make you slow down and think about what you are doing__
+
+
+Your advisor tends to rush through things. While there is a strong interest in being competitive/getting things done in the 
+[Leek group](http://www.biostat.jhsph.edu/~jleek/), there is an even stronger interest in doing them right and for the long term. 
+We will use the [testthat](http://adv-r.had.co.nz/Testing.html) framework for building unit tests. A couple of suggestions
+for using the framework are:
 
 * Organize your tests into contexts (groups of tests) and name them.
 * Have some tests that test the basic helper functions on fixed data.
 * Have some tests that check the output of your main functions on fixed data. 
+* Have some tests that can be run on random data - these can help find bugs before they happen
+
+
+To use the [testthat](http://adv-r.had.co.nz/Testing.html) package you will put a file called _test-area-packagename.R_ in
+the `inst/tests` directory, where _area_ is the name of the broad class of functions you are testing. Then add
+another file called _run-all.R_ in the same directory. The _run-all.R_ function has this code in it:
+
+
+```S
+library(testthat)
+library(mypackage)
+test_package("mypackage")
+```
+
+This means that whenever you run `R CMD check` on your package, you will get an error if one of the unit tests fails. This
+is important, because it will be one way for me to check your code and to tell you if you have broken your code
+with an update. 
+
+
+### An example unit test
+
+Here is an example unit test, so you get the idea of what I'm looking for. Below is a function for performing
+differential expression analysis on a matrix. 
+
+
+```S
+#' A function for differential expression analysis
+#' 
+#' This function takes a matrix of gene expression data
+#' (genes in rows, samples in columns) and a factor variable
+#' with two levels and performs differential expression analysis
+#'
+#' @param data A gene expression data matrix with genes in rows and samples in columns
+#' @param grp A two-level factor variable with two levels
+#'
+#' @return pValues The p-values from the differential expression test.
+#'
+#' @keywords differential expression
+#'
+#' @export
+#' 
+#' @examples
+#' R code here showing how your function works
+
+deFunction <- function(dat, grp){
+   
+}
+```
+
 
 
 Dummy proofing
