@@ -453,6 +453,67 @@ deFunction <- function(dat, grp){
 
 ```
 
+Now create a new file called _test-defunction.R_. The code in that file is: 
+
+
+```S
+context("tests on inputs")
+
+test_that("tests for grp variable",{
+  set.seed(12345)
+  dat <- matrix(rnorm(100*30),nrow=100,ncol=30)
+ 
+  grp <- rep(c(0,1),each=15)
+  expect_that(deFunction(dat,grp),throws_error("grp variable must be a factor"))
+  
+  grp <- as.factor(rep(c(0,1,2),each=10))
+  expect_that(deFunction(dat,grp),throws_error("grp variable must have exactly two levels"))
+  
+  grp <- as.factor(rep(0,30))
+  expect_that(deFunction(dat,grp),throws_error("grp variable must have exactly two levels")) 
+})
+
+test_that("tests for dat variable",{
+  set.seed(12345)
+  grp <- as.factor(rep(c(0,1),each=15))
+  
+  dat <- matrix(0,nrow=100,ncol=30)
+  expect_that(deFunction(dat,grp),throws_error("some genes have zero variance; t-test won't work"))
+})
+
+context("test on outputs")
+
+test_that("test p-values are numeric and non-zero",{
+  set.seed(12345)
+  grp <- as.factor(rep(c(0,1),each=15))
+  dat <- matrix(matrix(rnorm(100*30)),nrow=100,ncol=30)
+  
+  expect_that(deFunction(dat,grp),is_a("numeric"))
+  expect_that(all(deFunction(dat,grp) > 0),is_true())
+})
+
+```
+
+If you run the command: `test_file("test-defunction.R")` you should get the output:
+
+```S
+tests on inputs : ....
+test on outputs : ..
+```
+
+without any error messages. But if you accidentally delete one of your error checking messages at the beginning of
+the function and rerun the tests, it will tell you which context and which test broke. 
+
+The thing to keep in mind here is that you would be doing these tests on the fly/manually anyway. So you might as well
+write them into a set of unit tests that will give you an idea of where your functions are breaking. Some things that 
+you should be testing:
+
+* That your error messages catch what they should
+* That your outputs are what you expect them to be
+* That you get reasonable answers for reasonable inputs
+* When you know what the answer should be - you get it
+
+
 
 
 
@@ -463,9 +524,17 @@ Hopefully your package will have a ton of users. Inevitably, they will try to us
 intend. Some of these will be happy things (software you wrote for microarrays being used in sequencing). Sometimes
 they will be unhappy - people using it completely out of context and getting wonky answers. 
 
-You should do some minimal checking of arguments and have your functions "fail gracefully". But a major component
-of dummy proofing is writing thorough documentation and vignettes (see the above sections). The major way we will
-focus on dummy proofing is through documentation - and when you see weird cases, add them to the documents. 
+A major component of dummy proofing is writing thorough documentation and vignettes (see the above sections). 
+When you see weird cases (reported from users or cases you find yourself) add them to the documents. There is one
+additional important component of dummy proofing we will use: input dummy proofing (related to unit testing). 
+
+### Input dummy-proofing
+
+Most of the time, if you input non-matching arguments or arguments of the wrong class into R functions a cryptic
+error will result. This will cause you headaches when maintaining your software. So you should add some commands
+with the `stop` function at the beginning of each function that throw errors if the arguments don't have the correct
+class or would result in silly output (like the zero variance gene test in the unit testing example above). 
+
 
 
 Releasing to [Bioconductor](http://www.bioconductor.org/)
