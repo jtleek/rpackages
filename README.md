@@ -193,7 +193,9 @@ _Jeff Leek <jleek@jhsph.edu>_ and should be comma separated.
 package when you create it. See the section below on after you leave the [Leek group](http://www.biostat.jhsph.edu/~jleek/) for more information. 
 * The dependencies (other `R` packages your software uses/depends on) should be listed in a comma separated list after
 the `R` version. One of the dependencies should be the [knitr](http://cran.r-project.org/web/packages/knitr/index.html) package for the vignette. 
-* The License is required to be open source. I like GPL-2 or GPL-3 or the creative commons licenses like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/). 
+* The License is required to be open source. I like GPL-2 or GPL-3.
+I like the creative commons licenses, like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/), for
+manuscripts, but [they are not recommended for software](http://wiki.creativecommons.org/Frequently_Asked_Questions#Can_I_apply_a_Creative_Commons_license_to_software.3F). 
 [This](http://www.tldrlegal.com/) is a good website for learning more about software licenses. 
 * You should add a line _VignetteBuilder: knitr_ 
 * You should add a line _Suggests: knitr, BiocStyle_ 
