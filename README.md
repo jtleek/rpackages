@@ -160,7 +160,7 @@ git push -u origin master
 * If more than one person is working on developing the package or you want to contribute to one, check [how to fork a repository](https://help.github.com/articles/fork-a-repo). It is an easy way to contribute with a very low burden on the maintainer and no setup.
 * Consider whether you want users to report issues to your package. It is a very good framework for issue management, but can lead to duplicate information if the main issue reporting/tracking system is a mailing list like in the case of [Bioconductor](http://www.bioconductor.org/) packages. For an example of how GitHub's issue system looks like check the [rCharts issues](https://github.com/ramnathv/rCharts/issues?state=closed).
 
-Once you're familiar with basic git and GitHub workflows, GitHub has some more advanced features that you can take advantage of. In particular, [github flow](scottchacon.com/2011/08/31/github-flow.html) is an excellent way to manage contributions, and [GitHub organizations](https://github.com/blog/674-introducing-organizations) can provide a central location for multiple people (e.g. in a lab) to collaborate on software.
+Once you're familiar with basic git and GitHub workflows, GitHub has some more advanced features that you can take advantage of. In particular, [github flow](http://scottchacon.com/2011/08/31/github-flow.html) is an excellent way to manage contributions, and [GitHub organizations](https://github.com/blog/674-introducing-organizations) can provide a central location for multiple people (e.g. in a lab) to collaborate on software.
 
 The parts of an `R` package
 --------------------
