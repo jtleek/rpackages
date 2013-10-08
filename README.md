@@ -610,6 +610,7 @@ Thanks to the beauty of Github a few others have made contributions.
 * [Karl Broman](http://www.biostat.wisc.edu/~kbroman/) fixed some problems with license recommendations.
 * [Leo Collado Torres](http://www.biostat.jhsph.edu/~lcollado/#.UlP1O2TXis0) fixed some typos/added links
 * [Alyssa Frazee](http://alyssafrazee.com/) fixed typos/corrected grammar
+* [Robert M Flight](http://rmflight.github.io) corrected some information about writing vignettes.
 
 ### Footnotes
 
