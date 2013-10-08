@@ -597,13 +597,18 @@ after it is released without messing with users and adds to the maintainence hea
 * Add comments to your code/unit tests so that when something breaks you can find/fix the problem quickly. 
 
 
-About the author
+About the author(s)
 --------------------
 
 The first version of this tutorial was written by [Jeff Leek](http://www.biostat.jhsph.edu/~jleek/)  ([@simplystats](https://twitter.com/simplystats)). Hopefully
 he can sucker his students into contributing since they are much, much better `R` programmers than he is.
 
-[Titus Brown](http://ivory.idyll.org/blog) added the GitHub flow and organization links.  You can see his group's setup at [ged-lab](http://github.com/ged-lab).
+Thanks to the beauty of Github a few others have made contributions.
+
+* [Titus Brown](http://ivory.idyll.org/blog) added the GitHub flow and organization links.  You can see his group's setup at [ged-lab](http://github.com/ged-lab).
+* [Karl Broman](http://www.biostat.wisc.edu/~kbroman/) fixed some problems with license recommendations.
+* [Leo Collado Torres](http://www.biostat.jhsph.edu/~lcollado/#.UlP1O2TXis0) fixed some typos/added links
+* [Alyssa Frazee](http://alyssafrazee.com/) fixed typos/corrected grammar
 
 ### Footnotes
 
