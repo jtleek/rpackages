@@ -318,10 +318,11 @@ create a vignette. For our purposes, a vignette is a tutorial that includes the 
   * An application of these functions to the data
   * A description of the output and how it can be used
   
-We will write Vignettes in [knitr](http://yihui.name/knitr/). We will put a file called `vignette.Rmd` in
-the directory __packagename/inst/doc/__. [Here](http://yihui.name/knitr/demo/vignette/) is some information
-from [Yihui](http://yihui.name/) about building vignettes in [knitr](http://cran.r-project.org/web/packages/knitr/index.html). You should use the [BiocStyle](http://www.bioconductor.org/packages/devel/bioc/html/BiocStyle.html)
-package to style your vignette. This means you will need to add this code to the preamble of your markdown
+We will write Vignettes in [knitr](http://yihui.name/knitr/). Vignettes can generate either HTML from R markdown, or pdf from latex. In either case, the files should be in [__packagename/vignettes/__](http://cran.r-project.org/doc/manuals/R-exts.html#Writing-package-vignettes). During package building they will be moved to __packagename/inst/doc__. For HTML vignettes, the vignette files should be `vignette.Rmd`. For PDF vignettes, it should be `vignette.Rnw`. [Here](http://yihui.name/knitr/demo/vignette/) is some information
+from [Yihui](http://yihui.name/) about building vignettes in [knitr](http://cran.r-project.org/web/packages/knitr/index.html). 
+
+For latex vignettes, you should use the [BiocStyle](http://www.bioconductor.org/packages/devel/bioc/html/BiocStyle.html)
+package to style your vignette. This means you will need to add this code to the preamble of your `Rnw`
 file:
 
 ```S
