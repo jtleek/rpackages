@@ -197,6 +197,7 @@ the `R` version. One of the dependencies should be the [knitr](http://cran.r-pro
 I like the creative commons licenses, like [CC-BY-SA](http://creativecommons.org/licenses/by-sa/2.0/), for
 manuscripts, but [they are not recommended for software](http://wiki.creativecommons.org/Frequently_Asked_Questions#Can_I_apply_a_Creative_Commons_license_to_software.3F). 
 [This](http://www.tldrlegal.com/) is a good website for learning more about software licenses. 
+Also see [Jeff Atwood's comments on licenses](http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html).
 * You should add a line _VignetteBuilder: knitr_ 
 * You should add a line _Suggests: knitr, BiocStyle_ 
 
