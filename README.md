@@ -231,8 +231,8 @@ I will try to keep the stylistic requirements minimal because they would likely 
 2. Each line can be no more than 80 columns
 
 
-You can set these as defaults (say in Sublime or Rstudio) then you don't have to worry about them anymore. If you find 
-lines going longer than 80 columns, you will need to write the lines into fucntions, etc. 
+You can set these as defaults (say in Sublime or RStudio) then you don't have to worry about them anymore. If you find 
+lines going longer than 80 columns, you will need to write the lines into functions, etc. 
 
 
 Documentation
