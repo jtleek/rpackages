@@ -410,7 +410,7 @@ for using the framework are:
 
 To use the [testthat](http://adv-r.had.co.nz/Testing.html) package you will put a file called _test-area-packagename.R_ in
 the `inst/tests` directory, where _area_ is the name of the broad class of functions you are testing. Then add
-another file called _run-all.R_ in the same directory. The _run-all.R_ function has this code in it:
+another file called _run-all.R_ to a separate directory called `tests` (see for example the [stringr](https://github.com/hadley/stringr) package). The _run-all.R_ function has this code in it:
 
 
 ```S
@@ -611,6 +611,7 @@ Thanks to the beauty of Github a few others have made contributions.
 * [Leo Collado Torres](http://www.biostat.jhsph.edu/~lcollado/#.UlP1O2TXis0) fixed some typos/added links
 * [Alyssa Frazee](http://alyssafrazee.com/) fixed typos/corrected grammar
 * [Robert M Flight](http://rmflight.github.io) corrected some information about writing vignettes.
+* [Jeromy Anglim](jeromyanglim.blogspot.com) small tweak to description of unit testing
 
 ### Footnotes
 
