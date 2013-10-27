@@ -49,7 +49,7 @@ When to start writing an `R` package
 As soon as you have 2 functions. 
 
 Why 2? After you have more than one function it starts to get easy to lose track of
-what your functions do, it starts to be tempting to name your functions _foo_ or _tempfunction_ or some other such 
+what your functions do, it starts to be tempting to name your functions `foo` or `tempfunction` or some other such 
 nonsense. You are also tempted to put all of the functions in one file and just source it. That was what I did
 with my first project, which ended up being an epically comical set of about 3,000 lines of code in one `R` file. 
 Ask [my advisor](http://www.genomine.org/) about it sometime, he probably is still laughing about it. 
@@ -109,7 +109,7 @@ you should increase `y`.
 Creating your package
 ---------------------
 
-Run this code from `R` to create your package. It will create a directory called _packagename_ and put some stuff in it 
+Run this code from `R` to create your package. It will create a directory called `packagename` and put some stuff in it 
 (more on this stuff in a second). 
 
 ```S
@@ -135,12 +135,12 @@ steps to getting your package on [GitHub](https://github.com/):
 
 
 1. Create a [new Github repository](https://help.github.com/articles/create-a-repo) with the same name (packagename)
-2. In the _packagename_ directory on your local machine, run the commands: _git init_
-3. Then run: _git remote add origin git@github.com:yourusername/packagename.git_
-4. Create a file in the _packagename_ directory called README.md
-5. Run the command: _git add *_
-6. Run the command: _git commit -m 'initial commit'_
-7. Run the command: _git push -u origin master_
+2. In the `packagename` directory on your local machine, run the commands: `git init`
+3. Then run: `git remote add origin git@github.com:yourusername/packagename.git`
+4. Create a file in the `packagename` directory called README.md
+5. Run the command: `git add *`
+6. Run the command: `git commit -m 'initial commit'`
+7. Run the command: `git push -u origin master`
 
 In summary:
 
@@ -167,28 +167,28 @@ The parts of an `R` package
 
 ### `R` functions
 
-The `R` functions you have written go in the __R/__ directory in the _packagename_ folder. Each of your `R` functions
+The `R` functions you have written go in the `R/` directory in the `packagename` folder. Each of your `R` functions
 should go in a separate file with a `.R` extension. We are going to use capital `R` for the extension of the files. 
 
 Why? Don't ask questions. 
 
 If you define a new class call the `.R` file _classname-class.R_. For example, if you are creating the leek class of objects
-it would be called _leek-class.R_. If you are defining a new method for the class it should
+it would be called `leek-class.R`. If you are defining a new method for the class it should
 be named _newclass-methodname-method.R_. For example, a plotting method for the leek class would go in a `.R` file
 called _leek-plot-method.R_. 
 
 
 ### `DESCRIPTION `
 
-The `DESCRIPTION` file is a plain text file that gets generated with the _devtools::create_ command. 
+The `DESCRIPTION` file is a plain text file that gets generated with the `devtools::create` command. 
 
 * The package name should go after the colon on the first line. 
 * The package title should be a one sentence description of what the package actually does. 
 * The description should be a one paragraph description that builds on the title. It should give a user
 some idea about what kind of data your software should be used on, what the inputs are and what the outputs are. 
 * The version should be defined as described above. 
-* The authors field may have a @R before the colon which should be deleted. The authors should be in the format _author name <authoremail@host.com>_ for example: 
-_Jeff Leek <jleek@jhsph.edu>_ and should be comma separated. 
+* The authors field may have a @R before the colon which should be deleted. The authors should be in the format `author name <authoremail@host.com>` for example: 
+`Jeff Leek <jleek@jhsph.edu>` and should be comma separated. 
 * A maintainer field should be added with maintainers listed as comma separated files. You are the maintainer of your
 package when you create it. See the section below on after you leave the [Leek group](http://www.biostat.jhsph.edu/~jleek/) for more information. 
 * The dependencies (other `R` packages your software uses/depends on) should be listed in a comma separated list after
@@ -198,8 +198,8 @@ I like the creative commons licenses, like [CC-BY-SA](http://creativecommons.org
 manuscripts, but [they are not recommended for software](http://wiki.creativecommons.org/Frequently_Asked_Questions#Can_I_apply_a_Creative_Commons_license_to_software.3F). 
 [This](http://www.tldrlegal.com/) is a good website for learning more about software licenses. 
 Also see [Jeff Atwood's comments on licenses](http://www.codinghorror.com/blog/2007/04/pick-a-license-any-license.html).
-* You should add a line _VignetteBuilder: knitr_ 
-* You should add a line _Suggests: knitr, BiocStyle_ 
+* You should add a line `VignetteBuilder: knitr` 
+* You should add a line `Suggests: knitr, BiocStyle` 
 
 For example:
 
@@ -212,8 +212,7 @@ Date: 2013-09-30
 Authors@R: c(person("Jeff", "Leek", role = c("aut", "cre", "ths"),
     email = "jleek@jhsph.edu"))
 Depends:
-    R(>= 3.0.2),
-	knitr
+    R(>= 3.0.2)
 Suggests:
     knitr,
 	BiocStyle
@@ -250,8 +249,8 @@ like them to be.
 But if your software solves a real problem (it should!) and is well documented (it will be!) then people will
 use it and you will have a positive impact on the world. 
 
-Documentation has two main components. The first component is help files, which go into the __man/__ folder. The second 
-component is vignettes which will go in a folder called __inst/doc/__ which you will have to create. I'll tackle 
+Documentation has two main components. The first component is help files, which go into the `man/` folder. The second 
+component is vignettes which will go in a folder called `vignettes/ which you will have to create. I'll tackle 
 each of these separately. 
 
 ### Help (man) files
@@ -260,7 +259,7 @@ each of these separately.
 These files document each of the functions/methods/classes you will expose to your users. The good news is that
 you don't have to write these files yourself. You will use the [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) package to create the man files. To use
 [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) you will need to document your functions in the `.R` files with comments formatted in a specific way. Right
-before your functions you should have a set of comments that are denoted by the symbol _#'_. They are structured in 
+before your functions you should have a set of comments that are denoted by the symbol `#'`. They are structured in 
 the following way:
 
 ```S
@@ -287,8 +286,8 @@ myfunction <- function(inputParameter1, inputParameter2){
 	return(result)
 }
 ```
-You include the _@export_ command if you want the function to be exported (i.e. visible) to your end users. [Hadley](http://had.co.nz/) has a pretty comprehensive [guide](http://adv-r.had.co.nz/Documenting-functions.html) where you can 
-learn a lot more about how _roxygen_ works. Your function follows immediately after the comments. 
+You include the `@export` command if you want the function to be exported (i.e. visible) to your end users. [Hadley](http://had.co.nz/) has a pretty comprehensive [guide](http://adv-r.had.co.nz/Documenting-functions.html) where you can 
+learn a lot more about how `roxygen` works. Your function follows immediately after the comments. 
 
 When you have saved functions with [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) style comments you can create the `.Rd` files (the man files themselves) 
 by running:
@@ -332,7 +331,7 @@ BiocStyle::latex()
 ```
 
 See the [BiocStyle vignette](http://www.bioconductor.org/packages/devel/bioc/vignettes/BiocStyle/inst/doc/LatexStyle.pdf) for
-commands that you can use when creating your vignette (e.g. _\Biocpkg{IRanges}_ for referencing a [Bioconductor](http://www.bioconductor.org/) package).
+commands that you can use when creating your vignette (e.g. `\Biocpkg{IRanges}` for referencing a [Bioconductor](http://www.bioconductor.org/) package).
 
 
 
@@ -409,7 +408,7 @@ for using the framework are:
 
 
 To use the [testthat](http://adv-r.had.co.nz/Testing.html) package you will put a file called _test-area-packagename.R_ in
-the `inst/tests` directory, where _area_ is the name of the broad class of functions you are testing. Then add
+the `inst/tests` directory, where `area` is the name of the broad class of functions you are testing. Then add
 another file called _run-all.R_ to a separate directory called `tests` (see for example the [stringr](https://github.com/hadley/stringr) package). The _run-all.R_ function has this code in it:
 
 
@@ -450,7 +449,7 @@ differential expression analysis on a matrix.
 #' R code here showing how your function works
 
 deFunction <- function(dat, grp){
-  if(class(grp)!="factor"){stop("grp variable must be a factor")}
+  if(is.factor(grp)){stop("grp variable must be a factor")}
   if(length(unique(grp))!=2){stop("grp variable must have exactly two levels")} 
   if(any(genefilter::rowSds(dat)==0)){stop("some genes have zero variance")} 
   result = genefilter::rowttests(dat,grp)$p.value
@@ -459,7 +458,7 @@ deFunction <- function(dat, grp){
 
 ```
 
-Now create a new file called _test-defunction.R_. The code in that file is: 
+Now create a new file called `test-defunction.R`. The code in that file is: 
 
 
 ```S
