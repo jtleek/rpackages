@@ -449,7 +449,7 @@ differential expression analysis on a matrix.
 #' R code here showing how your function works
 
 deFunction <- function(dat, grp){
-  if(is.factor(grp)){stop("grp variable must be a factor")}
+  if(!is.factor(grp)){stop("grp variable must be a factor")}
   if(length(unique(grp))!=2){stop("grp variable must have exactly two levels")} 
   if(any(genefilter::rowSds(dat)==0)){stop("some genes have zero variance")} 
   result = genefilter::rowttests(dat,grp)$p.value
