@@ -14,12 +14,6 @@ The purposes of this guide are:
 * To try to make sure [Leek group](http://www.biostat.jhsph.edu/~jleek/) software has a consistent design.<sup>1</sup>
 
 
-Data analyses
-------------------
-
-Stay tuned for the [Leek group](http://www.biostat.jhsph.edu/~jleek/) approach to building/sharing data analyses. 
-
-
 
 Why develop an `R` package?
 --------------------
