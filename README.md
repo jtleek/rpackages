@@ -377,7 +377,7 @@ it is rarely the case that real/important analyses will be performed in a point 
 
 If you are way into creating products that point-and-click users will be interested in I'm very happy to support you in 
 that, since I think those things are cool, probably the future, and can certainly raise the interest in your work. But
-they present a potentially major difficulty in maintainence and should be placed in separate packages on your own account. 
+they present a potentially major difficulty in maintenance and should be placed in separate packages on your own account. 
 
 
 Unit tests
@@ -581,12 +581,12 @@ you commit to maintaining that software for at least 5 years after you graduate.
 like a contract or anything, but think of it as an honor thing. 
 
 5 years is a long time. It is most of the way toward tenure (in academia) or probably 3 years after you have started your
-own awesome company and appeared on [Techcrunch](http://techcrunch.com/). So it is worth thinking about ways you can ensure that the maintainence
+own awesome company and appeared on [Techcrunch](http://techcrunch.com/). So it is worth thinking about ways you can ensure that the maintenance
 will be as low as possible. Specifically:
 
 * Make the dependencies as minimal as possible. If your dependencies update, you'll have to update the software.
 * Only create functions that are absolutely necessary for the package. It is hard to delete functions from a package
-after it is released without messing with users and adds to the maintainence headache each time you keep one in. 
+after it is released without messing with users and adds to the maintenance headache each time you keep one in. 
 * Make the vignette really clear and add a FAQ with questions you get from users while you are still in the [Leek group](http://www.biostat.jhsph.edu/~jleek/). 
 * Add comments to your code/unit tests so that when something breaks you can find/fix the problem quickly. 
 
