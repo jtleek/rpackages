@@ -240,7 +240,7 @@ it is good to export and import exactly what you need. That will do your package
 collision name problems among functions/methods of other packages.
 
 If you have ever collision name problems, this package can help to know what functions from what package exactly are you using: 
-[codetoolsBioC](https://hedgehog.fhcrc.org/gentleman/bioconductor/trunk/madman/Rpacks/codetoolsBioC) (via svn with username and password readonly).
+[codetoolsBioC](https://hedgehog.fhcrc.org/gentleman/bioconductor/trunk/madman/Rpacks/codetoolsBioC) (via svn with username and password readonly). Read more [here](http://stackoverflow.com/a/7283511).
 
 Coding style requirements
 ---------------------
