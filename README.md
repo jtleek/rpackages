@@ -235,12 +235,13 @@ useDynLib(testthat,duplicate_)
 useDynLib(testthat,reassign_function)
 ```
 
-There is more information in [Hadley](http://had.co.nz/) [guide](http://r-pkgs.had.co.nz/namespace.html). In general,
+There is more information in [Hadley's](http://had.co.nz/) [guide](http://r-pkgs.had.co.nz/namespace.html). In general,
 it is good to export and import exactly what you need. That will do your package as lightly as possible, and avoid
 collision name problems among functions/methods of other packages.
 
 If you have ever collision name problems, this package can help to know what functions from what package exactly are you using: 
 [codetoolsBioC](https://hedgehog.fhcrc.org/gentleman/bioconductor/trunk/madman/Rpacks/codetoolsBioC) (via svn with username and password readonly). Read more [here](http://stackoverflow.com/a/7283511).
+
 
 Coding style requirements
 ---------------------
@@ -251,8 +252,7 @@ I will try to keep the stylistic requirements minimal because they would likely 
 2. Each line can be no more than 80 columns
 3. Use `<-` for asignament. Even if R understands `=`, it is a community agrenment to use the other one
 4. Some people like to name internal functions that are not exported with a `.` at the beggining
-5. [linr](https://github.com/jimhester/lintr) helps you with many of that. Is not perfect, but will make your life easy detecting coding style issues.
-
+5. [linr](https://github.com/jimhester/lintr) helps you with this. Is not perfect, but will make your life easy detecting coding style issues.
 
 You can set these as defaults (say in Sublime or RStudio) then you don't have to worry about them anymore. If you find 
 lines going longer than 80 columns, you will need to write the lines into functions, etc. 
