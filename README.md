@@ -217,7 +217,7 @@ License: Artistic-2.0
 ### `NAMESPACE `
 
 It is a plain text file that have all the functions, methods and classes exported. As well, it needs to
-have all functions that your pakcage depends on and it should match what you have in the DESCRIPTION file.
+have all functions that your package depends on and it should match what you have in the DESCRIPTION file.
 
 This file can be created with roxygen2 automatically but some times you need to do it yourself. An example is:
 
@@ -250,13 +250,13 @@ I will try to keep the stylistic requirements minimal because they would likely 
 
 1. Your indent should be 4 spaces on every line
 2. Each line can be no more than 80 columns
-3. Use `<-` for asignament. Even if R understands `=`, it is a community agrenment to use the other one
-4. Some people like to name internal functions that are not exported with a `.` at the beggining
-5. [linr](https://github.com/jimhester/lintr) helps you with this. Is not perfect, but will make your life easy detecting coding style issues.
+4. Some people like to name internal functions that are not exported with a `.` at the beginning
+5. [linr](https://github.com/jimhester/lintr) helps you with this. It's not perfect, but will make your life easy detecting coding style issues.
 
 You can set these as defaults (say in Sublime or RStudio) then you don't have to worry about them anymore. If you find 
 lines going longer than 80 columns, you will need to write the lines into functions, etc. 
 
+As a side note, if you submit to BioConductor, someone can mention the use of `<-` over `=` for assignment, but both are accepted and valid.
 
 Documentation
 ---------------------
@@ -275,8 +275,7 @@ use it and you will have a positive impact on the world.
 
 Documentation has two main components. The first component is help files, which go into the `man/` folder. The second 
 component is vignettes which will go in a folder called `vignettes/ which you will have to create. I'll tackle 
-each of these separately. As a rule, the user should be able to use the package reading only the MAN files, and the vignettes
-may be a complete or summary of what you can do with the package.
+each of these separately. 
 
 ### Help (man) files
 
@@ -296,7 +295,8 @@ the following way:
 #' @param inputParameter1 A description of the input parameter \code{inputParameter1}
 #' @param inputParameter2 A description of the input parameter \code{inputParameter2}
 #'
-#' @return output A description of the object the function outputs 
+#' @return output A description of the object the function outputs
+#' See \link[package]{function} for more details. 
 #'
 #' @keywords keywords
 #'
@@ -328,6 +328,9 @@ deals with [collation](http://cran.r-project.org/doc/manuals/R-exts.html#The-DES
 
 Normally, only functions, classes and methods that are exported are documented. Otherwise, the users will see documentation for
 functions that they can not use.
+
+As a rule, the user should be able to use the package reading only the MAN pages. It should have all the information about what the function/class does/contain,
+and the links to other relevant functions. For instance, if you have a class, link to the MAN pages for the methods of that class.
 
 ### Vignettes
 
