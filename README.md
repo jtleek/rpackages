@@ -66,7 +66,7 @@ To start writing an `R` package you need:
 Naming your package
 ---------------------
 
-The first step in creating your `R` package is to give it a name. Hadley [has some ideas](http://adv-r.had.co.nz/Package-basics.html)
+The first step in creating your `R` package is to give it a name. Hadley [has some ideas](http://http://r-pkgs.had.co.nz/package.html#naming)
 about it. Here are our rules:
 
 * Make it googleable - check by googling it.
