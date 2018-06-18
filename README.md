@@ -599,7 +599,7 @@ he can sucker his students into contributing since they are much, much better `R
 
 Thanks to the beauty of Github a few others have made contributions.
 
-* [Titus Brown](http://ivory.idyll.org/blog) added the GitHub flow and organization links.  You can see his group's setup at [ged-lab](http://github.com/ged-lab).
+* [Titus Brown](http://ivory.idyll.org/blog) added the GitHub flow and organization links.  You can see his group's setup at [dib-lab](https://github.com/dib-lab/).
 * [Karl Broman](http://www.biostat.wisc.edu/~kbroman/) fixed some problems with license recommendations.
 * [Leo Collado Torres](http://www.biostat.jhsph.edu/~lcollado/#.UlP1O2TXis0) fixed some typos/added links
 * [Alyssa Frazee](http://alyssafrazee.com/) fixed typos/corrected grammar
