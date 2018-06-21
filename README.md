@@ -14,7 +14,6 @@ The purposes of this guide are:
 * To try to make sure [Leek group](http://www.biostat.jhsph.edu/~jleek/) software has a consistent design.<sup>1</sup>
 
 
-
 Why develop an `R` package?
 --------------------
 
@@ -62,6 +61,7 @@ To start writing an `R` package you need:
 * A [github account](https://github.com/signup/free). 
 * To read [Hadley's intro](http://adv-r.had.co.nz/Package-basics.html).
 * To read [Karl's Github tutorial](http://kbroman.github.io/github_tutorial/).
+
 
 Naming your package
 ---------------------
@@ -156,6 +156,7 @@ git push -u origin master
 
 Once you're familiar with basic git and GitHub workflows, GitHub has some more advanced features that you can take advantage of. In particular, [github flow](http://scottchacon.com/2011/08/31/github-flow.html) is an excellent way to manage contributions, and [GitHub organizations](https://github.com/blog/674-introducing-organizations) can provide a central location for multiple people (e.g. in a lab) to collaborate on software.
 
+
 The parts of an `R` package
 --------------------
 
@@ -170,7 +171,6 @@ If you define a new class call the `.R` file _classname-class.R_. For example, i
 it would be called `leek-class.R`. If you are defining a new method for the class it should
 be named _newclass-methodname-method.R_. For example, a plotting method for the leek class would go in a `.R` file
 called _leek-plot-method.R_. 
-
 
 ### `DESCRIPTION `
 
@@ -214,19 +214,49 @@ Description: A couple sentences that expand the title
 License: Artistic-2.0
 ```
 
+### `NAMESPACE `
+
+It is a plain text file that have all the functions, methods and classes exported. As well, it needs to
+have all functions that your package depends on and it should match what you have in the DESCRIPTION file.
+
+This file can be created with roxygen2 automatically but some times you need to do it yourself. An example is:
+
+```
+S3method(as.character,expectation)
+S3method(compare,character)
+export(auto_test)
+export(auto_test_package)
+export(colourise)
+export(context)
+exportClasses(ListReporter)
+exportClasses(MinimalReporter)
+importFrom(methods,setRefClass)
+useDynLib(testthat,duplicate_)
+useDynLib(testthat,reassign_function)
+```
+
+There is more information in [Hadley's](http://had.co.nz/) [guide](http://r-pkgs.had.co.nz/namespace.html). In general,
+it is good to export and import exactly what you need. That will do your package as lightly as possible, and avoid
+collision name problems among functions/methods of other packages.
+
+If you have ever collision name problems, this package can help to know what functions from what package exactly are you using: 
+[codetoolsBioC](https://hedgehog.fhcrc.org/gentleman/bioconductor/trunk/madman/Rpacks/codetoolsBioC) (via svn with username and password readonly). Read more [here](http://stackoverflow.com/a/7283511).
+
+
 Coding style requirements
 ---------------------
 
 I will try to keep the stylistic requirements minimal because they would likely drive you nuts. For now there are:
 
-
 1. Your indent should be 4 spaces on every line
 2. Each line can be no more than 80 columns
-
+4. Some people like to name internal functions that are not exported with a `.` at the beginning
+5. [linr](https://github.com/jimhester/lintr) helps you with this. It's not perfect, but will make your life easy detecting coding style issues.
 
 You can set these as defaults (say in Sublime or RStudio) then you don't have to worry about them anymore. If you find 
 lines going longer than 80 columns, you will need to write the lines into functions, etc. 
 
+As a side note, if you submit to BioConductor, someone can mention the use of `<-` over `=` for assignment, but both are accepted and valid.
 
 Documentation
 ---------------------
@@ -249,7 +279,6 @@ each of these separately.
 
 ### Help (man) files
 
-
 These files document each of the functions/methods/classes you will expose to your users. The good news is that
 you don't have to write these files yourself. You will use the [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) package to create the man files. To use
 [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) you will need to document your functions in the `.R` files with comments formatted in a specific way. Right
@@ -266,12 +295,14 @@ the following way:
 #' @param inputParameter1 A description of the input parameter \code{inputParameter1}
 #' @param inputParameter2 A description of the input parameter \code{inputParameter2}
 #'
-#' @return output A description of the object the function outputs 
+#' @return output A description of the object the function outputs
+#' See \link[package]{function} for more details. 
 #'
 #' @keywords keywords
 #'
 #' @export
 #' 
+#' @importFrom methods setClass setGeneric setMethod setRefClass
 #' @examples
 #' R code here showing how your function works
 
@@ -295,6 +326,11 @@ on the package folder. The package folder must be in the current working directo
 Please read [Hadley](http://had.co.nz/)'s [guide](http://adv-r.had.co.nz/Documenting-functions.html) in its entirety to understand how to document packages and in particular, how [roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) 
 deals with [collation](http://cran.r-project.org/doc/manuals/R-exts.html#The-DESCRIPTION-file) and [namespaces](http://cran.r-project.org/doc/manuals/R-exts.html#Package-namespaces). 
 
+Normally, only functions, classes and methods that are exported are documented. Otherwise, the users will see documentation for
+functions that they can not use.
+
+As a rule, the user should be able to use the package reading only the MAN pages. It should have all the information about what the function/class does/contain,
+and the links to other relevant functions. For instance, if you have a class, link to the MAN pages for the methods of that class.
 
 ### Vignettes
 
@@ -328,12 +364,12 @@ See the [BiocStyle vignette](http://www.bioconductor.org/packages/devel/bioc/vig
 commands that you can use when creating your vignette (e.g. `\Biocpkg{IRanges}` for referencing a [Bioconductor](http://www.bioconductor.org/) package).
 
 
-
 Who should be an author?
 ---------------------
 
 For our purposes anyone who wrote a function exposed to users in the package (a function that has an @export in the documentation)
 will be listed as an author. 
+
 
 Who should be a maintainer
 ---------------------
@@ -362,6 +398,7 @@ is "trustworthy" are to check the number of downloads/users (higher is better), 
 actively updated (on [GitHub](https://github.com/)/[Bioconductor](http://www.bioconductor.org/)/[CRAN](http://cran.r-project.org/)) and there is a history of updates, and check to see if the authors of the
 packages routinely maintain important packages (like [Hadley](http://had.co.nz/), [Yihui](http://yihui.name/), [Ramnath](https://github.com/ramnathv), [Martin Morgan](http://www.fhcrc.org/en/util/directory.html?q=martin+morgan&short=true#peopleresults), etc.). Keep in mind your
 commitment (see below) when making decisions about whose functions to use. 
+
 
 Simple >>>> Complex
 ---------------------
@@ -415,7 +452,6 @@ test_package("mypackage")
 This means that whenever you run `R CMD check` on your package, you will get an error if one of the unit tests fails. This
 is important, because it will be one way for me to check your code and to tell you if you have broken your code
 with an update. 
-
 
 ### An example unit test
 
@@ -513,9 +549,6 @@ you should be testing:
 * When you know what the answer should be - you get it
 
 
-
-
-
 Dummy proofing
 ---------------------
 
@@ -533,7 +566,6 @@ Most of the time, if you input non-matching arguments or arguments of the wrong 
 error will result. This will cause you headaches when maintaining your software. So you should add some commands
 with the `stop` function at the beginning of each function that throw errors if the arguments don't have the correct
 class or would result in silly output (like the zero variance gene test in the unit testing example above). 
-
 
 
 Releasing to [Bioconductor](http://www.bioconductor.org/)
@@ -555,7 +587,7 @@ library("devtools")
 check_doc("packagename") ## Only for checking the documentation
 system.time(check("packagename")) ## R CMD check with time information
 ```
-
+* Check your package passes [BiocCheck()](https://www.bioconductor.org/packages/release/bioc/html/BiocCheck.html)
 * Update the version number and push to [GitHub](https://github.com/). In the commit comments, state it is the version being 
 pushed to [Bioconductor](http://www.bioconductor.org/).
 * Send an email as described in the checklist stating that you want an account and want to submit a package. 
