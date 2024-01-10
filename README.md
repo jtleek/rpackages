@@ -3,7 +3,7 @@ Developing `R` packages
 
 As a modern statistician, one of the most fundamental contributions you can make is to create and distribute
 software that implements the methods you develop. I have gone so far as to say if you write a paper without
-software, [that paper doesn't exist](http://simplystatistics.org/2013/01/23/statisticians-and-computer-scientists-if-there-is-no-code-there-is-no-paper/).
+software, [that paper doesn't exist](https://simplystatistics.org/posts/2013-01-23-statisticians-and-computer-scientists-if-there-is-no-code-there-is-no-paper/).
 
 The purposes of this guide are:
 
